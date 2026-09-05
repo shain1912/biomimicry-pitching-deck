@@ -67,6 +67,17 @@
 
   .chip{display:inline-block;background:rgba(84,214,200,.13);border:1px solid rgba(84,214,200,.45);color:var(--teal);border-radius:100px;padding:.4em 1.1em;font-size:clamp(13px,1.4vw,19px);font-weight:700;margin-top:2vh}
   .chip.gd{background:rgba(245,187,75,.14);border-color:var(--gold);color:var(--gold)}
+  .tags{display:flex;flex-wrap:wrap;gap:1vh .7vw;margin-top:1.8vh}
+  .tag{background:var(--navy-2);border:1px solid var(--line);border-radius:100px;padding:.5em 1.05em;font-size:clamp(13px,1.5vw,20px);font-weight:600;word-break:keep-all}
+  .tag.gd{border-color:rgba(245,187,75,.5);background:rgba(245,187,75,.1);color:var(--gold)}
+  .tag.tl{border-color:rgba(84,214,200,.5);background:rgba(84,214,200,.1);color:var(--teal)}
+  .tag.cr{border-color:rgba(245,139,122,.5);background:rgba(245,139,122,.1);color:var(--coral)}
+  .tag.vi{border-color:rgba(167,139,250,.55);background:rgba(167,139,250,.12);color:#a78bfa}
+  .card.vi{border-left:6px solid #a78bfa}
+  .card.vi li::before{background:#a78bfa}
+  .tile.cr{background:rgba(245,139,122,.1);border-color:rgba(245,139,122,.45)}
+  .tile.vi{background:rgba(167,139,250,.12);border-color:rgba(167,139,250,.5)}
+  .violet{color:#a78bfa}
   .kbd{font-family:var(--mono);background:var(--navy-3);border:1px solid var(--line);border-radius:6px;padding:.1em .5em;font-size:.85em;color:var(--gold-soft)}
 
   .fig{width:100%;height:auto;max-height:48vh;display:block}
@@ -222,6 +233,134 @@
     <div class="tile"><div class="ico">1️⃣</div><div class="t">무엇을 관찰했나</div><div class="d">“새” 말고 “물총새 부리”처럼 콕 집어서</div></div>
     <div class="tile"><div class="ico">2️⃣</div><div class="t">어떤 원리인가</div><div class="d">생김새 말고 <b>어떻게 작동하는지</b></div></div>
     <div class="tile"><div class="ico">3️⃣</div><div class="t">어디에 쓸 건가</div><div class="d">그 원리가 왜 이 문제를 푸는지</div></div>
+  </div>
+</section>
+
+<!-- 미션 조건 -->
+<section class="slide">
+  <p class="eyebrow">오늘의 미션 · 무엇을 만드나</p>
+  <h2>주제 하나 골라<br><span class="gold">캠페인</span>을 기획해요</h2>
+  <div class="four" style="margin-top:3vh">
+    <div class="tile hi"><div class="ico">🎯</div><div class="t">트랙 고르기</div><div class="d">A·B·C·D 중 <b>하나</b></div></div>
+    <div class="tile"><div class="ico">📣</div><div class="t">캠페인 기획</div><div class="d">사람들을 <b>움직이게</b> 하는 활동</div></div>
+    <div class="tile"><div class="ico">🖥️</div><div class="t">발표자료 만들기</div><div class="d">웹페이지로 만들 거예요</div></div>
+    <div class="tile tl"><div class="ico">⏱️</div><div class="t">5분 발표</div><div class="d">짧게, 대신 확실하게</div></div>
+  </div>
+  <span class="chip gd">AI는 마음껏 쓰세요! 대신 <b>확인은 내가</b></span>
+</section>
+
+<!-- 트랙 개요 -->
+<section class="slide">
+  <p class="eyebrow">주제 트랙</p>
+  <h2>네 갈래 중 <span class="gold">하나</span>를 골라요</h2>
+  <div class="four" style="margin-top:3vh">
+    <div class="tile tl"><div class="ico">🌍</div><div class="t">A. 지구환경</div><div class="d">우리가 사는 <b>지구</b>가 아파요</div></div>
+    <div class="tile cr"><div class="ico">🩺</div><div class="t">B. 일상 건강</div><div class="d"><b>내 몸</b>이 매일 겪는 일</div></div>
+    <div class="tile hi"><div class="ico">🤖</div><div class="t">C. AI·디지털</div><div class="d">화면 속 세상, <b>잘 쓰는 법</b></div></div>
+    <div class="tile vi"><div class="ico">🚀</div><div class="t">D. 우주·미래기술</div><div class="d">아직 <b>안 온 내일</b> 이야기</div></div>
+  </div>
+  <p class="say" style="margin-top:2.6vh;max-width:52ch">고민되면 <b>"내가 진짜 짜증났던 일"</b>이 있는 쪽으로 고르세요.</p>
+</section>
+
+<!-- A트랙 -->
+<section class="slide">
+  <p class="eyebrow">A 트랙</p>
+  <div class="cols">
+    <div>
+      <h2>🌍 <span class="tealc">지구환경</span></h2>
+      <p class="say">지구가 보내는 <b>신호</b>를 찾는 트랙.<br>바다·공기·땅·생물이 지금 어떤지 들여다봐요.</p>
+      <div class="card tl" style="margin-top:2.4vh">
+        <p>예를 들면 — <b>"우리 학교 앞 미세먼지 알림 캠페인"</b></p>
+      </div>
+    </div>
+    <div>
+      <p class="say" style="font-size:clamp(14px,1.6vw,21px)">이런 이야기가 들어 있어요</p>
+      <div class="tags">
+        <span class="tag tl">기후위기와 우리 일상</span>
+        <span class="tag tl">해양 플라스틱</span>
+        <span class="tag tl">미세플라스틱</span>
+        <span class="tag tl">도시 미세먼지</span>
+        <span class="tag tl">열섬 현상</span>
+        <span class="tag tl">동식물 보호</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B트랙 -->
+<section class="slide">
+  <p class="eyebrow">B 트랙</p>
+  <div class="cols">
+    <div>
+      <h2>🩺 <span class="coralc">일상 건강</span></h2>
+      <p class="say">매일 반복돼서 <b>당연해진 것들</b>을 다시 보는 트랙.<br>잠, 빛, 먹는 것, 소리까지요.</p>
+      <div class="card cr" style="margin-top:2.4vh">
+        <p>예를 들면 — <b>"밤 10시 이후 방 불 끄기 챌린지"</b></p>
+      </div>
+    </div>
+    <div>
+      <p class="say" style="font-size:clamp(14px,1.6vw,21px)">이런 이야기가 들어 있어요</p>
+      <div class="tags">
+        <span class="tag cr">수면</span>
+        <span class="tag cr">빛 공해</span>
+        <span class="tag cr">건강 식품</span>
+        <span class="tag cr">영양</span>
+        <span class="tag cr">위생</span>
+        <span class="tag cr">미생물</span>
+        <span class="tag cr">소음</span>
+        <span class="tag cr">청력</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- C트랙 -->
+<section class="slide">
+  <p class="eyebrow">C 트랙</p>
+  <div class="cols">
+    <div>
+      <h2>🤖 <span class="gold">AI · 디지털</span></h2>
+      <p class="say">화면 속 세상을 <b>똑똑하게 쓰는 법</b>을 다루는 트랙.<br>오늘 뒤에서 배울 AI 이야기와 이어져요.</p>
+      <div class="card gd" style="margin-top:2.4vh">
+        <p>예를 들면 — <b>"이 뉴스 진짜야? 3초 확인법 포스터"</b></p>
+      </div>
+    </div>
+    <div>
+      <p class="say" style="font-size:clamp(14px,1.6vw,21px)">이런 이야기가 들어 있어요</p>
+      <div class="tags">
+        <span class="tag gd">AI 윤리</span>
+        <span class="tag gd">가짜뉴스</span>
+        <span class="tag gd">과학적 사고력</span>
+        <span class="tag gd">디지털 디톡스</span>
+        <span class="tag gd">균형 잡힌 사용</span>
+        <span class="tag gd">정보 격차</span>
+        <span class="tag gd">디지털 시민성</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- D트랙 -->
+<section class="slide">
+  <p class="eyebrow">D 트랙</p>
+  <div class="cols">
+    <div>
+      <h2>🚀 <span class="violet">우주 · 미래기술</span></h2>
+      <p class="say">아직 오지 않은 <b>내일</b>을 상상하는 트랙.<br>그리고 잊혀진 <b>어제의 과학자</b>도 다시 꺼내요.</p>
+      <div class="card vi" style="margin-top:2.4vh">
+        <p>예를 들면 — <b>"2050년 우리 동네 지도 그리기 전시"</b></p>
+      </div>
+    </div>
+    <div>
+      <p class="say" style="font-size:clamp(14px,1.6vw,21px)">이런 이야기가 들어 있어요</p>
+      <div class="tags">
+        <span class="tag vi">한국 우주개발</span>
+        <span class="tag vi">잊혀진 과학자 재조명</span>
+        <span class="tag vi">미래 에너지</span>
+        <span class="tag vi">신소재</span>
+        <span class="tag vi">청소년이 생각하는 2050년 과학</span>
+      </div>
+    </div>
   </div>
 </section>
 

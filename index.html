@@ -4,189 +4,161 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>디자인씽킹×자연모사 — 복습 &amp; 아이디어 피칭</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#16233d;
-    --navy-2:#1e2f4f;
-    --navy-3:#27395c;
-    --gold:#f4b942;
-    --gold-soft:#f8d78c;
-    --ink:#eef2f8;
-    --ink-dim:#a8b5cc;
-    --line:rgba(238,242,248,.14);
-    --teal:#4fd1c5;
+    --navy:#141f36;
+    --navy-2:#1c2a46;
+    --navy-3:#25355a;
+    --gold:#f5bb4b;
+    --gold-soft:#fbdc9c;
+    --ink:#eff3f9;
+    --ink-dim:#a9b6cd;
+    --line:rgba(239,243,249,.13);
+    --teal:#54d6c8;
+    --coral:#f58b7a;
+    --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Malgun Gothic",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
-  body{
-    background:var(--navy);
-    color:var(--ink);
-    font-family:"IBM Plex Sans KR",system-ui,sans-serif;
-    overflow:hidden;
-  }
+  body{background:var(--navy);color:var(--ink);font-family:var(--font);overflow:hidden;-webkit-font-smoothing:antialiased}
+
   .deck{position:relative;width:100vw;height:100vh}
-  .slide{
-    position:absolute;inset:0;
-    display:none;
-    padding:6vh 7vw;
-    flex-direction:column;
-    justify-content:center;
-    animation:fade .35s ease;
-  }
+  .slide{position:absolute;inset:0;display:none;padding:7vh 7vw;flex-direction:column;justify-content:center;animation:fade .3s ease}
   .slide.active{display:flex}
-  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.slide{animation:none}}
 
-  .eyebrow{
-    font-family:"IBM Plex Mono",monospace;
-    font-size:clamp(11px,1.1vw,15px);
-    letter-spacing:.18em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:1.6vh;
-  }
-  h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(34px,6.4vw,86px);line-height:1.05;letter-spacing:-.01em}
-  h2{font-family:"Black Han Sans",sans-serif;font-size:clamp(26px,4vw,54px);line-height:1.12;margin-bottom:2.6vh}
-  h3{font-size:clamp(17px,1.9vw,26px);font-weight:700;margin-bottom:1vh;color:var(--gold-soft)}
-  p,li{font-size:clamp(14px,1.55vw,22px);line-height:1.65;color:var(--ink)}
+  .eyebrow{font-family:var(--mono);font-size:clamp(11px,1.05vw,14px);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8vh;font-weight:500}
+  h1{font-size:clamp(32px,5.4vw,72px);font-weight:800;line-height:1.14;letter-spacing:-.02em;word-break:keep-all}
+  h2{font-size:clamp(25px,3.5vw,46px);font-weight:800;line-height:1.24;letter-spacing:-.018em;margin-bottom:2.4vh;word-break:keep-all}
+  h3{font-size:clamp(16px,1.85vw,25px);font-weight:700;line-height:1.4;margin-bottom:1.2vh;color:var(--gold-soft);word-break:keep-all}
+  p,li{font-size:clamp(13.5px,1.45vw,20px);line-height:1.68;word-break:keep-all}
+  .lead{font-size:clamp(15px,1.75vw,25px);color:var(--ink-dim);margin-top:2vh;max-width:56ch;line-height:1.62}
   .dim{color:var(--ink-dim)}
-  .lead{font-size:clamp(16px,1.9vw,27px);color:var(--ink-dim);margin-top:2vh;max-width:52ch}
+  b,strong{font-weight:700}
 
-  .rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:3vh 0}
+  .rule{width:88px;height:5px;background:var(--gold);border-radius:3px;margin:3vh 0}
 
-  ul{list-style:none;display:flex;flex-direction:column;gap:1.4vh;margin-top:1vh}
-  ul li{padding-left:1.5em;position:relative}
-  ul li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  ul{list-style:none;display:flex;flex-direction:column;gap:1.3vh;margin-top:1vh}
+  ul li{padding-left:1.4em;position:relative;color:var(--ink)}
+  ul li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
   ol{counter-reset:s;list-style:none;display:flex;flex-direction:column;gap:1.5vh;margin-top:1vh}
-  ol li{counter-increment:s;padding-left:2.4em;position:relative}
-  ol li::before{
-    content:counter(s);position:absolute;left:0;top:-.05em;
-    width:1.7em;height:1.7em;border-radius:50%;
-    background:var(--gold);color:var(--navy);
-    font-family:"Black Han Sans",sans-serif;font-size:.85em;
-    display:grid;place-items:center;
-  }
+  ol li{counter-increment:s;padding-left:2.5em;position:relative;color:var(--ink)}
+  ol li::before{content:counter(s);position:absolute;left:0;top:.08em;width:1.65em;height:1.65em;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.8em;font-weight:800;display:grid;place-items:center}
 
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:center}
-  .cols.narrow-right{grid-template-columns:1.25fr .95fr}
-  .shot{width:100%;border-radius:14px;display:block;box-shadow:0 24px 60px -24px rgba(0,0,0,.8)}
+  .cols.wide-left{grid-template-columns:1.3fr .9fr}
+  .shot{width:100%;border-radius:14px;display:block;box-shadow:0 22px 55px -22px rgba(0,0,0,.85)}
   figure{display:flex;flex-direction:column;gap:1vh}
-  figcaption{font-size:clamp(12px,1.15vw,15px);color:var(--ink-dim)}
+  figcaption{font-size:clamp(11.5px,1.05vw,14px);color:var(--ink-dim)}
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;margin-top:2vh}
-  .card{
-    background:var(--navy-2);border:1px solid var(--line);border-radius:14px;
-    padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:.9vh;
-  }
-  .card .n{font-family:"IBM Plex Mono",monospace;color:var(--gold);font-size:clamp(11px,1vw,14px);letter-spacing:.12em}
-  .card h4{font-size:clamp(15px,1.6vw,22px);font-weight:700}
-  .card p{font-size:clamp(12.5px,1.3vw,17px);color:var(--ink-dim);line-height:1.55}
+  .cards{display:grid;gap:1.5vw;margin-top:1.5vh}
+  .cards.c2{grid-template-columns:repeat(2,1fr)}
+  .cards.c3{grid-template-columns:repeat(3,1fr)}
+  .cards.c4{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--navy-2);border:1px solid var(--line);border-radius:14px;padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:.85vh}
+  .card .n{font-family:var(--mono);color:var(--gold);font-size:clamp(10.5px,.95vw,13px);letter-spacing:.1em;font-weight:500}
+  .card h4{font-size:clamp(14.5px,1.55vw,21px);font-weight:700;line-height:1.35;word-break:keep-all}
+  .card p{font-size:clamp(12px,1.24vw,16.5px);color:var(--ink-dim);line-height:1.58}
+  .card .tag{font-family:var(--mono);font-size:clamp(10px,.9vw,12.5px);color:var(--teal);letter-spacing:.06em}
 
-  .quiz{background:var(--navy-2);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:12px;padding:2.6vh 2vw;margin-top:1vh}
-  .choices{display:grid;grid-template-columns:1fr 1fr;gap:1.2vh 2vw;margin-top:2vh}
-  .choice{background:var(--navy-3);border-radius:10px;padding:1.4vh 1.2vw;font-size:clamp(13px,1.4vw,19px)}
-  .choice.correct{background:rgba(244,185,66,.16);border:1px solid var(--gold);color:#fff;font-weight:600}
-  .answer{margin-top:2.4vh;padding-top:2vh;border-top:1px solid var(--line);color:var(--gold-soft);font-size:clamp(13px,1.4vw,19px)}
+  .quiz{background:var(--navy-2);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;padding:2.8vh 2vw}
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:1.2vh 1.6vw;margin-top:2.2vh}
+  .choice{background:var(--navy-3);border-radius:10px;padding:1.35vh 1.1vw;font-size:clamp(12.5px,1.35vw,18px);line-height:1.45}
+  .choice.correct{background:rgba(245,187,75,.17);border:1px solid var(--gold);font-weight:700}
+  .answer{margin-top:2.4vh;padding-top:2vh;border-top:1px solid var(--line);color:var(--gold-soft);font-size:clamp(12.5px,1.32vw,17.5px);line-height:1.62}
   .answer b{color:var(--gold)}
 
-  .timeline{display:flex;gap:1vw;margin-top:2.5vh}
-  .tl{flex:1;background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:2vh 1.1vw;text-align:center}
-  .tl .t{font-family:"IBM Plex Mono",monospace;color:var(--gold);font-size:clamp(13px,1.5vw,20px);font-weight:600}
-  .tl .l{font-size:clamp(12px,1.25vw,16px);color:var(--ink-dim);margin-top:.7vh;line-height:1.45}
+  .timeline{display:flex;gap:.9vw;margin-top:2.4vh}
+  .tl{flex:1;background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:2vh 1vw;text-align:center}
+  .tl .t{font-family:var(--mono);color:var(--gold);font-size:clamp(13px,1.45vw,19px);font-weight:600}
+  .tl .l{font-size:clamp(11.5px,1.2vw,15.5px);color:var(--ink-dim);margin-top:.7vh;line-height:1.45}
 
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4vw;margin-top:2.5vh}
-  .step{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:2.2vh 1.3vw;position:relative;overflow:hidden}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3vw;margin-top:2.4vh}
+  .step{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:2.2vh 1.2vw;position:relative;overflow:hidden}
   .step::after{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--gold)}
-  .step .k{font-family:"Black Han Sans",sans-serif;color:var(--gold);font-size:clamp(20px,2.6vw,34px);line-height:1}
-  .step h4{margin:1vh 0 .6vh;font-size:clamp(14px,1.5vw,20px)}
-  .step p{font-size:clamp(12px,1.25vw,16px);color:var(--ink-dim);line-height:1.5}
+  .step .k{font-family:var(--mono);color:var(--gold);font-size:clamp(17px,2vw,26px);font-weight:600;line-height:1}
+  .step h4{margin:1.1vh 0 .6vh;font-size:clamp(13.5px,1.45vw,19px);font-weight:700;word-break:keep-all}
+  .step p{font-size:clamp(11.5px,1.2vw,15.5px);color:var(--ink-dim);line-height:1.52}
 
-  .kbd{font-family:"IBM Plex Mono",monospace;background:var(--navy-3);border:1px solid var(--line);border-radius:6px;padding:.15em .5em;font-size:.9em;color:var(--gold-soft)}
+  .kbd{font-family:var(--mono);background:var(--navy-3);border:1px solid var(--line);border-radius:6px;padding:.12em .5em;font-size:.88em;color:var(--gold-soft);font-weight:500}
+  .chip{display:inline-block;background:rgba(84,214,200,.13);border:1px solid rgba(84,214,200,.42);color:var(--teal);border-radius:100px;padding:.35em .95em;font-size:clamp(11.5px,1.18vw,15px);font-weight:600}
+  .chip.coral{background:rgba(245,139,122,.13);border-color:rgba(245,139,122,.42);color:var(--coral)}
 
-  .hero{position:absolute;inset:0;z-index:-1;opacity:.34}
+  .hero{position:absolute;inset:0;z-index:-1;opacity:.32}
   .hero img{width:100%;height:100%;object-fit:cover}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 22%,rgba(22,35,61,.55) 70%,rgba(22,35,61,.35))}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 24%,rgba(20,31,54,.6) 68%,rgba(20,31,54,.38))}
 
-  .chip{display:inline-block;background:rgba(79,209,197,.14);border:1px solid rgba(79,209,197,.45);color:var(--teal);border-radius:100px;padding:.4em 1em;font-size:clamp(12px,1.25vw,16px);font-weight:600}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:2.4vw;margin-top:1.5vh}
+  .panel{background:var(--navy-2);border:1px solid var(--line);border-radius:14px;padding:2.6vh 1.7vw}
+  .panel h3{margin-bottom:1.4vh}
+  .panel ul{margin-top:0}
+  .panel li{font-size:clamp(12.5px,1.3vw,17px)}
 
-  nav.hud{
-    position:fixed;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.08);z-index:10;
-  }
+  .quote{border-left:4px solid var(--teal);padding-left:1.4vw;color:var(--ink-dim);font-size:clamp(14px,1.5vw,20px);line-height:1.6;margin-top:2vh}
+
+  nav.hud{position:fixed;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.07);z-index:10}
   nav.hud i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s ease}
-  .counter{
-    position:fixed;right:2.2vw;bottom:2.4vh;z-index:10;
-    font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-dim);
-  }
-  .hint{
-    position:fixed;left:2.2vw;bottom:2.4vh;z-index:10;
-    font-size:12px;color:rgba(168,181,204,.55);
-  }
+  .counter{position:fixed;right:2.2vw;bottom:2.3vh;z-index:10;font-family:var(--mono);font-size:12.5px;color:var(--ink-dim)}
+  .hint{position:fixed;left:2.2vw;bottom:2.3vh;z-index:10;font-size:11.5px;color:rgba(169,182,205,.5)}
 </style>
 </head>
 <body>
 <div class="deck" id="deck">
 
-  <!-- 1 -->
+  <!-- 1 타이틀 -->
   <section class="slide active">
     <div class="hero"><img src="assets/kingfisher.jpg" alt=""></div>
     <p class="eyebrow">디자인씽킹 × 자연모사 · 2교시</p>
     <h1>복습 그리고<br>아이디어 피칭</h1>
     <div class="rule"></div>
-    <p class="lead">지난 시간에 배운 렌즈를 꺼내서, 이번엔 여러분의 문제에 직접 써봅니다. KJ법 + FigJam으로 아이디어를 모으고 피칭까지.</p>
+    <p class="lead">지난 시간에 배운 렌즈를 꺼내서, 이번엔 여러분의 문제에 직접 써봅니다.<br>브레인스토밍으로 모으고, FigJam에서 정리하고, 피칭까지.</p>
   </section>
 
-  <!-- 2 -->
+  <!-- 2 순서 -->
   <section class="slide">
     <p class="eyebrow">오늘 순서 · 60분</p>
     <h2>이렇게 진행합니다</h2>
     <div class="timeline">
-      <div class="tl"><div class="t">15분</div><div class="l">복습 퀴즈<br>핵심 프레임 되짚기</div></div>
-      <div class="tl"><div class="t">5분</div><div class="l">오늘의 활동<br>과제·평가 기준</div></div>
-      <div class="tl"><div class="t">10분</div><div class="l">KJ법 배우기</div></div>
-      <div class="tl"><div class="t">10분</div><div class="l">FigJam 사용법</div></div>
-      <div class="tl"><div class="t">20분</div><div class="l">실습 + 피칭</div></div>
+      <div class="tl"><div class="t">15분</div><div class="l">복습 퀴즈<br>핵심 프레임</div></div>
+      <div class="tl"><div class="t">5분</div><div class="l">오늘의 과제<br>평가 기준</div></div>
+      <div class="tl"><div class="t">10분</div><div class="l">발상 기법<br>KJ법 외 5가지</div></div>
+      <div class="tl"><div class="t">8분</div><div class="l">FigJam<br>실습 가이드</div></div>
+      <div class="tl"><div class="t">7분</div><div class="l">피칭 기법<br>4가지 틀</div></div>
+      <div class="tl"><div class="t">15분</div><div class="l">실습 + 피칭</div></div>
     </div>
+    <p class="lead">기법은 많이 배우는 게 목적이 아니라, <b style="color:var(--gold)">오늘 하나를 골라 끝까지 써보는 것</b>이 목적입니다.</p>
   </section>
 
-  <!-- 3 -->
+  <!-- 3 리캡 -->
   <section class="slide">
     <p class="eyebrow">Part 1 · 복습</p>
-    <h2>지난 시간의 핵심은<br>사례가 아니라 <span style="color:var(--gold)">렌즈</span>였습니다</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="n">FRAME 01</div>
-        <h4>관찰 → 추상화 → 적용</h4>
-        <p>보고, 원리만 뽑아내고, 다른 재료·다른 목적에 옮겨 심는 3단계</p>
-      </div>
-      <div class="card">
-        <div class="n">FRAME 02</div>
-        <h4>생물모방 디자인 나선 6단계</h4>
-        <p>Define · <b style="color:var(--gold-soft)">Biologize</b> · Discover · Abstract · Emulate · Evaluate</p>
-      </div>
-      <div class="card">
-        <div class="n">FRAME 03</div>
-        <h4>물어볼 상대는 셋</h4>
-        <p>사람의 경험 · 38억 년 검증된 자연 · 빠르지만 검증이 필요한 AI</p>
-      </div>
+    <h2>지난 시간의 핵심은 사례가 아니라 <span style="color:var(--gold)">렌즈</span>였습니다</h2>
+    <div class="cards c3">
+      <div class="card"><div class="n">FRAME 01</div><h4>관찰 → 추상화 → 적용</h4><p>보고, 원리만 뽑아내고, 다른 재료·다른 목적에 옮겨 심는 3단계</p></div>
+      <div class="card"><div class="n">FRAME 02</div><h4>생물모방 디자인 나선 6단계</h4><p>Define · <b style="color:var(--gold-soft)">Biologize</b> · Discover · Abstract · Emulate · Evaluate</p></div>
+      <div class="card"><div class="n">FRAME 03</div><h4>물어볼 상대는 셋</h4><p>사람의 경험 · 38억 년 검증된 자연 · 빠르지만 검증이 필요한 AI</p></div>
     </div>
   </section>
 
-  <!-- 4 -->
+  <!-- 4 퀴즈1 -->
   <section class="slide">
     <p class="eyebrow">복습 퀴즈 1 · 객관식</p>
-    <div class="cols narrow-right">
-      <div>
-        <div class="quiz">
-          <h3>디자인씽킹은 5단계, 생물모방 나선은 6단계.<br>자연모사에만 있는 그 한 단계가 하는 일은?</h3>
-          <div class="choices">
-            <div class="choice">① 시제품을 더 빨리 만든다</div>
-            <div class="choice correct">② 문제를 생물학의 언어로 바꿔 질문한다</div>
-            <div class="choice">③ 사용자 인터뷰를 한 번 더 한다</div>
-            <div class="choice">④ AI에게 먼저 물어본다</div>
-          </div>
-          <p class="answer"><b>정답 ② Biologize</b> — “가벼운 텐트를 어떻게 지을까”를 “자연에서는 최소 재료로 어떻게 구조를 지탱할까”로 바꾸는 순간, 찾아볼 대상이 텐트 회사에서 지구의 모든 생물로 넓어집니다.</p>
+    <div class="cols wide-left">
+      <div class="quiz">
+        <h3>디자인씽킹은 5단계, 생물모방 나선은 6단계.<br>자연모사에만 있는 그 한 단계가 하는 일은?</h3>
+        <div class="choices">
+          <div class="choice">① 시제품을 더 빨리 만든다</div>
+          <div class="choice correct">② 문제를 생물학의 언어로 바꿔 질문한다</div>
+          <div class="choice">③ 사용자 인터뷰를 한 번 더 한다</div>
+          <div class="choice">④ AI에게 먼저 물어본다</div>
         </div>
+        <p class="answer"><b>정답 ② Biologize</b> — “가벼운 텐트를 어떻게 지을까”를 “자연에서는 최소 재료로 어떻게 구조를 지탱할까”로 바꾸는 순간, 찾아볼 대상이 텐트 회사에서 지구의 모든 생물로 넓어집니다.</p>
       </div>
       <figure>
         <img class="shot" src="assets/frame.jpg" alt="질문의 프레임">
@@ -195,21 +167,19 @@
     </div>
   </section>
 
-  <!-- 5 -->
+  <!-- 5 퀴즈2 -->
   <section class="slide">
     <p class="eyebrow">복습 퀴즈 2 · 객관식</p>
-    <div class="cols narrow-right">
-      <div>
-        <div class="quiz">
-          <h3>벨크로를 만든 과정 “관찰 → 추상화 → 적용”.<br>이 중 ‘추상화’가 실제로 한 일은?</h3>
-          <div class="choices">
-            <div class="choice">① 왜 잘 붙는지 자세히 들여다봤다</div>
-            <div class="choice correct">② 원리만 남기고 “씨앗”이라는 사실을 지웠다</div>
-            <div class="choice">③ 나일론으로 제품을 만들어 팔았다</div>
-            <div class="choice">④ 우주복에 쓸 수 있는지 실험했다</div>
-          </div>
-          <p class="answer"><b>정답 ②</b> — 씨앗이든 나일론이든 똑같이 작동하는 <b>원리</b>만 남기고 재료와 형태는 지우는 것. 이게 추상화의 전부입니다.</p>
+    <div class="cols wide-left">
+      <div class="quiz">
+        <h3>벨크로를 만든 과정 “관찰 → 추상화 → 적용”.<br>이 중 ‘추상화’가 실제로 한 일은?</h3>
+        <div class="choices">
+          <div class="choice">① 왜 잘 붙는지 자세히 들여다봤다</div>
+          <div class="choice correct">② 원리만 남기고 “씨앗”이라는 사실을 지웠다</div>
+          <div class="choice">③ 나일론으로 제품을 만들어 팔았다</div>
+          <div class="choice">④ 우주복에 쓸 수 있는지 실험했다</div>
         </div>
+        <p class="answer"><b>정답 ②</b> — 씨앗이든 나일론이든 똑같이 작동하는 <b>원리</b>만 남기고 재료와 형태는 지우는 것. 이게 추상화의 전부입니다.</p>
       </div>
       <figure>
         <img class="shot" src="assets/burr.jpg" alt="우엉씨 갈고리">
@@ -218,20 +188,18 @@
     </div>
   </section>
 
-  <!-- 6 -->
+  <!-- 6 퀴즈3 -->
   <section class="slide">
     <p class="eyebrow">복습 퀴즈 3 · 주관식</p>
-    <div class="cols narrow-right">
-      <div>
-        <div class="quiz">
-          <h3>왜 “사람의 경험 · 자연 · AI” 셋 모두에게 물어야 할까요?<br>각각의 장점과 한계를 들어 설명하세요.</h3>
-          <p class="answer" style="border:none;padding-top:1.4vh">
-            <b>모범답안 방향</b><br>
-            · 사람의 경험 — 쌓인 시간이 짧고(길어야 몇십 년) 관점이 좁을 수 있음<br>
-            · 자연 — 38억 년 검증된 설계도지만, 사람 문제에 맞게 번역(Biologize)이 필요<br>
-            · AI — 빠르지만 “다음 단어를 확률로 예측”할 뿐이라 자신감과 정확도가 무관, 늘 검증(Evaluate) 필요
-          </p>
-        </div>
+    <div class="cols wide-left">
+      <div class="quiz">
+        <h3>왜 “사람의 경험 · 자연 · AI” 셋 모두에게 물어야 할까요?<br>각각의 장점과 한계를 들어 설명하세요.</h3>
+        <p class="answer" style="border:none;padding-top:1.6vh">
+          <b>모범답안 방향</b><br>
+          · <b>사람의 경험</b> — 쌓인 시간이 짧고(길어야 몇십 년) 관점이 좁을 수 있음<br>
+          · <b>자연</b> — 38억 년 검증된 설계도지만, 사람 문제에 맞게 번역(Biologize)이 필요<br>
+          · <b>AI</b> — 빠르지만 “다음 단어를 확률로 예측”할 뿐이라 자신감과 정확도가 무관, 늘 검증(Evaluate) 필요
+        </p>
       </div>
       <figure>
         <img class="shot" src="assets/slimemold.jpg" alt="점균">
@@ -240,21 +208,19 @@
     </div>
   </section>
 
-  <!-- 7 -->
+  <!-- 7 퀴즈4 -->
   <section class="slide">
     <p class="eyebrow">복습 퀴즈 4 · 주관식 → 오늘의 과제</p>
-    <div class="cols narrow-right">
-      <div>
-        <div class="quiz">
-          <h3>‘관찰 → 추상화 → 적용’ 렌즈를<br>내 주변의 불편한 문제 하나에 직접 적용해보세요.</h3>
-          <ul style="margin-top:1.6vh">
-            <li>어떤 문제를 골랐나요?</li>
-            <li>자연에서 무엇을 관찰하고 싶나요?</li>
-            <li>거기서 뽑아낼 <b>원리</b>는 무엇인가요?</li>
-            <li>그 원리를 어떻게 적용할 건가요?</li>
-          </ul>
-          <p class="answer"><b>이 질문이 오늘 피칭 주제입니다.</b> 지금부터 이 답을 팀과 함께 만들어봅니다.</p>
-        </div>
+    <div class="cols wide-left">
+      <div class="quiz">
+        <h3>‘관찰 → 추상화 → 적용’ 렌즈를<br>내 주변의 불편한 문제 하나에 직접 적용해보세요.</h3>
+        <ul style="margin-top:1.8vh">
+          <li>어떤 문제를 골랐나요?</li>
+          <li>자연에서 무엇을 관찰하고 싶나요?</li>
+          <li>거기서 뽑아낼 <b>원리</b>는 무엇인가요?</li>
+          <li>그 원리를 어떻게 적용할 건가요?</li>
+        </ul>
+        <p class="answer"><b>이 질문이 오늘의 피칭 주제입니다.</b> 지금부터 이 답을 팀과 함께 만들어봅니다.</p>
       </div>
       <figure>
         <img class="shot" src="assets/challenge.jpg" alt="미니 챌린지">
@@ -263,26 +229,38 @@
     </div>
   </section>
 
-  <!-- 8 -->
+  <!-- 8 평가기준 -->
   <section class="slide">
     <p class="eyebrow">Part 2 · 오늘의 활동</p>
     <h2>피칭은 이 세 가지로 평가합니다</h2>
-    <div class="cards">
+    <div class="cards c3">
       <div class="card"><div class="n">CRITERIA 01</div><h4>관찰 대상이 구체적인가</h4><p>“새” 말고 “물총새가 물에 들어가는 순간의 부리 각도”처럼.</p></div>
       <div class="card"><div class="n">CRITERIA 02</div><h4>원리가 형태가 아니라 작동 방식인가</h4><p>“뾰족하게 생겼다”가 아니라 “물살을 옆으로 밀지 않고 갈라낸다”.</p></div>
-      <div class="card"><div class="n">CRITERIA 03</div><h4>적용이 그 원리와 논리적으로 연결되는가</h4><p>뽑아낸 원리가 실제로 그 문제를 푸는 이유를 설명할 수 있어야 합니다.</p></div>
+      <div class="card"><div class="n">CRITERIA 03</div><h4>적용이 원리와 논리적으로 연결되는가</h4><p>뽑아낸 원리가 그 문제를 왜 푸는지 설명할 수 있어야 합니다.</p></div>
     </div>
     <p class="lead">완성도보다 <b style="color:var(--gold)">순서를 제대로 밟았는지</b>가 핵심입니다.</p>
   </section>
 
-  <!-- 9 -->
+  <!-- 9 발상기법 개요 -->
   <section class="slide">
-    <p class="eyebrow">Part 3 · KJ법</p>
-    <h2>흩어진 아이디어를<br>덩어리로 묶는 방법</h2>
+    <p class="eyebrow">Part 3 · 발상 기법</p>
+    <h2>아이디어가 안 나오는 건<br>머리가 아니라 <span style="color:var(--gold)">방법</span>의 문제입니다</h2>
+    <div class="quote">“자유롭게 아무거나 말해보세요”가 가장 안 통하는 지시입니다.<br>제약과 순서를 주면 오히려 아이디어가 쏟아집니다.</div>
+    <div class="cards c3" style="margin-top:3vh">
+      <div class="card"><div class="n">문제 01</div><h4>목소리 큰 사람이 다 정한다</h4><p>→ 말로 하지 말고 <b>각자 조용히 쓰는</b> 기법으로</p></div>
+      <div class="card"><div class="n">문제 02</div><h4>비슷한 아이디어만 맴돈다</h4><p>→ <b>억지 제약</b>을 걸어 다른 방향으로 밀어내는 기법으로</p></div>
+      <div class="card"><div class="n">문제 03</div><h4>많이 나왔는데 정리가 안 된다</h4><p>→ <b>묶고 이름 붙이는</b> 기법으로</p></div>
+    </div>
+  </section>
+
+  <!-- 10 KJ법 -->
+  <section class="slide">
+    <p class="eyebrow">발상 기법 ① · 오늘 메인</p>
+    <h2>KJ법 — 흩어진 아이디어를 덩어리로</h2>
     <div class="cols">
       <div>
-        <p>일본 문화인류학자 <b>가와키타 지로(川喜田二郎)</b>가 현장 조사 데이터를 정리하려고 만든 방법. 그의 이니셜을 따서 <b style="color:var(--gold)">KJ법</b>이라 부릅니다.</p>
-        <p class="lead">핵심은 하나입니다 — <b>먼저 분류 기준을 정하지 않는다.</b> 카드를 늘어놓고 “비슷한 것끼리” 모으다 보면, 기준이 나중에 저절로 드러납니다.</p>
+        <p>일본 문화인류학자 <b>가와키타 지로(川喜田二郎)</b>가 현장 조사 데이터를 정리하려고 만든 방법. 이니셜을 따서 <b style="color:var(--gold)">KJ법</b>이라 부릅니다.</p>
+        <p class="lead">핵심은 하나 — <b>분류 기준을 먼저 정하지 않는다.</b> 카드를 늘어놓고 “비슷한 것끼리” 모으다 보면 기준이 나중에 저절로 드러납니다.</p>
       </div>
       <div>
         <span class="chip">지난 시간의 ‘추상화’와 같은 동작</span>
@@ -291,19 +269,119 @@
     </div>
   </section>
 
-  <!-- 10 -->
+  <!-- 11 KJ 4단계 -->
   <section class="slide">
-    <p class="eyebrow">Part 3 · KJ법 4단계</p>
+    <p class="eyebrow">발상 기법 ① · KJ법 4단계</p>
     <h2>이 순서대로 하면 됩니다</h2>
     <div class="steps">
       <div class="step"><div class="k">01</div><h4>카드 쓰기</h4><p>한 장에 아이디어 하나. 짧은 문장으로. 말하지 말고 각자 조용히.</p></div>
-      <div class="step"><div class="k">02</div><h4>비슷한 것끼리 모으기</h4><p>기준을 정하지 말고 그냥 “가까운 느낌”대로 옮겨 붙입니다.</p></div>
+      <div class="step"><div class="k">02</div><h4>비슷한 것끼리 모으기</h4><p>기준을 정하지 말고 “가까운 느낌”대로 옮겨 붙입니다.</p></div>
       <div class="step"><div class="k">03</div><h4>그룹에 이름 붙이기</h4><p>이 덩어리를 한 문장으로 부르면? ← 여기가 추상화 지점.</p></div>
       <div class="step"><div class="k">04</div><h4>관계 배치 · 스토리라인</h4><p>그룹끼리 화살표로 잇고, 발표할 순서로 배치합니다.</p></div>
     </div>
   </section>
 
-  <!-- 11 -->
+  <!-- 12 브레인라이팅 & 크레이지8 -->
+  <section class="slide">
+    <p class="eyebrow">발상 기법 ②③ · 조용히 많이 뽑아내기</p>
+    <h2>말하지 않고 쏟아내는 두 가지</h2>
+    <div class="split">
+      <div class="panel">
+        <h3>브레인라이팅 6-3-5</h3>
+        <p class="dim" style="margin-bottom:1.4vh">6명 · 3개씩 · 5분 간격으로 종이를 옆으로</p>
+        <ul>
+          <li>각자 종이에 아이디어 3개를 5분 안에 적는다</li>
+          <li>종이를 옆 사람에게 넘긴다</li>
+          <li>받은 아이디어를 <b>변형·확장</b>해 3개 더 적는다</li>
+          <li>6바퀴 돌면 30분에 108개</li>
+        </ul>
+        <span class="chip" style="margin-top:1.6vh">목소리 큰 사람 문제 해결</span>
+      </div>
+      <div class="panel">
+        <h3>크레이지 에이트 (Crazy 8s)</h3>
+        <p class="dim" style="margin-bottom:1.4vh">종이를 8칸으로 접고 8분 동안 8개</p>
+        <ul>
+          <li>1칸당 <b>1분</b>, 그림으로 그린다(글자 최소화)</li>
+          <li>시간이 강제로 완벽주의를 끊어준다</li>
+          <li>뒤로 갈수록 이상한 게 나오는데, 그게 목적</li>
+          <li>구글 벤처스 디자인 스프린트의 대표 기법</li>
+        </ul>
+        <span class="chip coral" style="margin-top:1.6vh">비슷한 아이디어 탈출</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 SCAMPER & 역브레인스토밍 -->
+  <section class="slide">
+    <p class="eyebrow">발상 기법 ④⑤ · 억지로 다른 방향 보기</p>
+    <h2>제약을 걸어 시야를 비트는 두 가지</h2>
+    <div class="split">
+      <div class="panel">
+        <h3>스캠퍼 (SCAMPER)</h3>
+        <p class="dim" style="margin-bottom:1.4vh">7개 질문을 기존 아이디어에 하나씩 대본다</p>
+        <ul>
+          <li><b>S</b>ubstitute 다른 걸로 바꾸면?</li>
+          <li><b>C</b>ombine 둘을 합치면? / <b>A</b>dapt 다른 데서 빌려오면?</li>
+          <li><b>M</b>odify 키우거나 줄이면? / <b>P</b>ut to other use 다른 용도로?</li>
+          <li><b>E</b>liminate 없애면? / <b>R</b>everse 순서를 뒤집으면?</li>
+        </ul>
+        <span class="chip" style="margin-top:1.6vh">자연모사와 궁합: “Adapt”가 곧 Biologize</span>
+      </div>
+      <div class="panel">
+        <h3>역브레인스토밍 (Reverse)</h3>
+        <p class="dim" style="margin-bottom:1.4vh">“어떻게 하면 이 문제를 <b>더 악화</b>시킬까?”</p>
+        <ul>
+          <li>망치는 방법을 신나게 쏟아낸다(웃기니까 잘 나온다)</li>
+          <li>그 목록을 하나씩 <b>뒤집어</b> 해결책으로 바꾼다</li>
+          <li>“학교가 더 시끄러우려면?” → 조용하게 만드는 단서가 나옴</li>
+        </ul>
+        <span class="chip coral" style="margin-top:1.6vh">아이디어가 하나도 안 나올 때 특효</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 HMW & 마인드맵 -->
+  <section class="slide">
+    <p class="eyebrow">발상 기법 ⑥⑦ · 질문을 다듬고 넓히기</p>
+    <h2>시작 질문을 잘 만드는 두 가지</h2>
+    <div class="split">
+      <div class="panel">
+        <h3>HMW 질문법 (How Might We)</h3>
+        <p class="dim" style="margin-bottom:1.4vh">“우리가 어떻게 하면 ~할 수 있을까?”</p>
+        <ul>
+          <li>불만을 질문으로 바꾼다: “급식 줄이 길다” → “어떻게 하면 기다리는 시간이 지루하지 않을까?”</li>
+          <li>너무 좁으면(→해답이 하나뿐) 넓히고, 너무 넓으면 좁힌다</li>
+          <li>이 질문 한 줄이 이후 30분의 방향을 정한다</li>
+        </ul>
+        <span class="chip" style="margin-top:1.6vh">Define 단계의 도구</span>
+      </div>
+      <div class="panel">
+        <h3>마인드맵</h3>
+        <p class="dim" style="margin-bottom:1.4vh">가운데 주제에서 가지를 뻗어 나간다</p>
+        <ul>
+          <li>생각의 <b>연결</b>이 보여서 빠진 영역을 발견하기 좋다</li>
+          <li>혼자 준비할 때, 또는 KJ법 전 워밍업으로</li>
+          <li>가지 끝의 단어들이 그대로 KJ법의 카드가 된다</li>
+        </ul>
+        <span class="chip coral" style="margin-top:1.6vh">KJ법의 앞 단계로 붙이면 좋음</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 기법 선택 가이드 -->
+  <section class="slide">
+    <p class="eyebrow">발상 기법 · 정리</p>
+    <h2>상황별로 이걸 고르세요</h2>
+    <div class="cards c4">
+      <div class="card"><div class="tag">아이디어가 없다</div><h4>크레이지 8s</h4><p>8분 강제 8개. 손이 먼저 움직이게.</p></div>
+      <div class="card"><div class="tag">한 사람만 말한다</div><h4>브레인라이팅</h4><p>말 대신 종이. 모두가 똑같이 3개씩.</p></div>
+      <div class="card"><div class="tag">다 비슷비슷하다</div><h4>SCAMPER · 역발상</h4><p>제약을 걸거나, 일부러 망쳐보기.</p></div>
+      <div class="card"><div class="tag">너무 많아 정리가 안 된다</div><h4>KJ법</h4><p>묶고 이름 붙이기. 오늘 우리가 할 것.</p></div>
+    </div>
+    <p class="lead">오늘은 <b style="color:var(--gold)">크레이지 8s로 뽑고 → KJ법으로 묶는</b> 조합으로 갑니다.</p>
+  </section>
+
+  <!-- 16 FigJam 개요 -->
   <section class="slide">
     <p class="eyebrow">Part 4 · FigJam</p>
     <h2>FigJam으로 KJ법 하기</h2>
@@ -311,55 +389,140 @@
     <ol style="margin-top:2vh">
       <li><b>보드 만들기</b> — figma.com → FigJam board 새로 만들기 → 오른쪽 위 <span class="kbd">Share</span>에서 “Anyone with the link → can edit”으로 바꾸고 링크 공유</li>
       <li><b>영역 나누기</b> — 섹션 도구 <span class="kbd">Shift</span>+<span class="kbd">S</span>로 “아이디어 / 그룹 / 스토리라인” 3구역을 미리 그려둡니다</li>
+      <li><b>이름 확인</b> — 각자 우측 상단 아바타에 이름을 넣어두면 누가 뭘 붙였는지 보입니다</li>
     </ol>
   </section>
 
-  <!-- 12 -->
+  <!-- 17 FigJam 실습1 -->
   <section class="slide">
     <p class="eyebrow">Part 4 · FigJam 실습 ①</p>
     <h2>카드 쓰기 &amp; 모으기</h2>
     <ol>
       <li><b>스티키 노트</b> — <span class="kbd">S</span>를 누르고 캔버스를 클릭하면 바로 생성. 한 장에 아이디어 하나, 5분간 <b>대화 없이</b> 각자 붙입니다.</li>
       <li><b>색으로 구분</b> — 오른쪽 패널에서 색 변경. 예: 노랑=문제, 초록=관찰한 생물, 파랑=뽑아낸 원리</li>
-      <li><b>모으기</b> — 비슷한 카드를 드래그해서 가까이 붙입니다. 여러 장은 드래그로 한 번에 선택해 이동.</li>
-      <li><b>정리</b> — 겹치면 <span class="kbd">Tidy up</span>(선택 후 우클릭)으로 격자 정렬</li>
+      <li><b>모으기</b> — 비슷한 카드를 드래그해 가까이 붙입니다. 여러 장은 드래그 박스로 한 번에 선택해 이동.</li>
+      <li><b>정리</b> — 겹치면 선택 후 우클릭 → <span class="kbd">Tidy up</span>으로 격자 정렬</li>
     </ol>
   </section>
 
-  <!-- 13 -->
+  <!-- 18 FigJam 실습2 -->
   <section class="slide">
     <p class="eyebrow">Part 4 · FigJam 실습 ②</p>
     <h2>이름 붙이고 · 잇고 · 고르기</h2>
     <ol>
-      <li><b>그룹 이름</b> — 텍스트 <span class="kbd">T</span> 또는 섹션 제목으로 덩어리마다 한 문장 이름을 답니다 <span class="chip" style="margin-left:.6em">= 추상화</span></li>
-      <li><b>관계 잇기</b> — 도형 가장자리에 커서를 올리면 나오는 화살표를 끌어 연결. 원인→결과, 관찰→원리→적용 순서로.</li>
+      <li><b>그룹 이름</b> — 텍스트 <span class="kbd">T</span> 또는 섹션 제목으로 덩어리마다 한 문장 이름을 답니다 <span class="chip" style="margin-left:.5em">= 추상화</span></li>
+      <li><b>관계 잇기</b> — 도형 가장자리에 커서를 올리면 나오는 화살표를 끌어 연결. 관찰 → 원리 → 적용 순서로.</li>
       <li><b>우선순위</b> — 상단 툴바 <span class="kbd">스탬프</span>로 각자 3표씩 투표. 표가 몰린 덩어리가 피칭 후보.</li>
       <li><b>발표 준비</b> — 발표할 영역을 화면에 꽉 채우고 화면 공유. 커서에 이름이 뜨니 짚어가며 설명하면 됩니다.</li>
     </ol>
   </section>
 
-  <!-- 14 -->
+  <!-- 19 피칭 기법 개요 -->
   <section class="slide">
-    <p class="eyebrow">Part 5 · 실습</p>
-    <h2>지금부터 20분</h2>
-    <div class="timeline">
-      <div class="tl"><div class="t">5분</div><div class="l">개인 카드 작성<br><span class="dim">대화 없이</span></div></div>
-      <div class="tl"><div class="t">7분</div><div class="l">모으기 +<br>그룹 이름 붙이기</div></div>
-      <div class="tl"><div class="t">3분</div><div class="l">화살표로<br>스토리라인 만들기</div></div>
-      <div class="tl"><div class="t">5분</div><div class="l">팀별 피칭<br><span class="dim">1팀 2분</span></div></div>
+    <p class="eyebrow">Part 5 · 피칭 기법</p>
+    <h2>좋은 아이디어가 <span style="color:var(--gold)">전달되지 않는</span> 이유</h2>
+    <div class="quote">듣는 사람은 “무엇을 만들었나”보다 <b>“왜 그게 답인가”</b>를 먼저 궁금해합니다.<br>그래서 피칭에는 순서가 있습니다.</div>
+    <div class="cards c3" style="margin-top:3vh">
+      <div class="card"><div class="n">흔한 실수 01</div><h4>배경 설명이 너무 길다</h4><p>핵심이 나오기 전에 이미 집중이 끊깁니다.</p></div>
+      <div class="card"><div class="n">흔한 실수 02</div><h4>“좋은 것 같아요”로 끝난다</h4><p>왜 좋은지 근거(관찰·원리)를 안 말합니다.</p></div>
+      <div class="card"><div class="n">흔한 실수 03</div><h4>다음에 뭘 해야 할지 없다</h4><p>듣는 사람이 뭘 도와줄 수 있는지 모릅니다.</p></div>
     </div>
-    <p class="lead">피칭 한 문장 틀 — “저희는 <b>○○ 문제</b>를 풀려고 <b>△△</b>를 관찰했고, 거기서 <b>□□ 원리</b>를 뽑아 <b>◇◇</b>에 적용했습니다.”</p>
   </section>
 
-  <!-- 15 -->
+  <!-- 20 피칭 기법 1,2 -->
+  <section class="slide">
+    <p class="eyebrow">피칭 기법 ①② · 짧게 말하기</p>
+    <h2>30초 안에 끝내는 두 가지 틀</h2>
+    <div class="split">
+      <div class="panel">
+        <h3>엘리베이터 피치</h3>
+        <p class="dim" style="margin-bottom:1.4vh">엘리베이터를 함께 타는 30초 동안 설명 끝내기</p>
+        <ul>
+          <li><b>누가</b> 어떤 상황에서 <b>무엇</b> 때문에 불편한지</li>
+          <li>우리는 <b>무엇</b>을 만들었는지</li>
+          <li>기존과 <b>어떻게 다른지</b> 한 가지만</li>
+        </ul>
+        <p class="answer" style="border-top:1px solid var(--line);margin-top:1.6vh;padding-top:1.4vh">“급식 줄에서 지루한 학생을 위해, 우리는 대기 시간을 게임으로 바꾸는 앱을 만들었고, 기존 알림앱과 달리 <b>줄 서 있는 동안에만</b> 작동합니다.”</p>
+      </div>
+      <div class="panel">
+        <h3>문제 → 해결 → 근거 (3단)</h3>
+        <p class="dim" style="margin-bottom:1.4vh">오늘 우리 수업에 가장 잘 맞는 틀</p>
+        <ul>
+          <li><b>문제</b> — 무엇이 왜 불편한가 (한 문장)</li>
+          <li><b>해결</b> — 무엇을 만들었나 (한 문장)</li>
+          <li><b>근거</b> — 자연에서 관찰한 것 + 뽑아낸 원리</li>
+        </ul>
+        <span class="chip" style="margin-top:1.6vh">평가 기준 3가지와 정확히 대응</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 21 피칭 기법 3,4 -->
+  <section class="slide">
+    <p class="eyebrow">피칭 기법 ③④ · 이야기로 만들기</p>
+    <h2>기억에 남게 만드는 두 가지 틀</h2>
+    <div class="split">
+      <div class="panel">
+        <h3>픽사 스토리 스파인</h3>
+        <p class="dim" style="margin-bottom:1.4vh">빈칸을 채우면 이야기가 되는 문장 틀</p>
+        <ul>
+          <li>옛날 옛적에 ___가 있었어요</li>
+          <li>매일 ___했어요</li>
+          <li><b>그러던 어느 날</b> ___이 일어났어요</li>
+          <li>그래서 ___했고, 결국 ___가 되었어요</li>
+        </ul>
+        <span class="chip" style="margin-top:1.6vh">“그러던 어느 날”이 곧 문제 발견 순간</span>
+      </div>
+      <div class="panel">
+        <h3>10-20-30 규칙</h3>
+        <p class="dim" style="margin-bottom:1.4vh">가이 가와사키가 제안한 발표 자료 원칙</p>
+        <ul>
+          <li>슬라이드 <b>10장</b> 이내</li>
+          <li><b>20분</b> 안에 끝내기</li>
+          <li>글자 크기 <b>30pt</b> 이상 (= 글을 줄여라)</li>
+        </ul>
+        <span class="chip coral" style="margin-top:1.6vh">오늘 피칭은 2분 · 슬라이드 없이 보드로</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 22 오늘의 피칭 틀 -->
+  <section class="slide">
+    <p class="eyebrow">Part 5 · 오늘 쓸 틀</p>
+    <h2>이 한 문장으로 시작하세요</h2>
+    <div class="quiz" style="margin-top:1vh">
+      <h3 style="color:var(--ink);font-size:clamp(17px,2.1vw,30px);line-height:1.55">
+        “저희는 <span style="color:var(--gold)">○○ 문제</span>를 풀려고<br>
+        <span style="color:var(--gold)">△△</span>를 관찰했고, 거기서 <span style="color:var(--gold)">□□ 원리</span>를 뽑아<br>
+        <span style="color:var(--gold)">◇◇</span>에 적용했습니다.”
+      </h3>
+      <p class="answer">그다음 30초 — 왜 그 원리가 이 문제를 푸는지 설명. 마지막 10초 — 다음에 무엇을 더 해보고 싶은지.</p>
+    </div>
+  </section>
+
+  <!-- 23 실습 타임라인 -->
+  <section class="slide">
+    <p class="eyebrow">Part 6 · 실습</p>
+    <h2>지금부터 15분</h2>
+    <div class="timeline">
+      <div class="tl"><div class="t">4분</div><div class="l">크레이지 8s<br><span class="dim">각자 8칸 채우기</span></div></div>
+      <div class="tl"><div class="t">5분</div><div class="l">FigJam에 붙이고<br>비슷한 것끼리 모으기</div></div>
+      <div class="tl"><div class="t">3분</div><div class="l">그룹 이름 붙이고<br>화살표로 잇기</div></div>
+      <div class="tl"><div class="t">3분</div><div class="l">팀별 피칭<br><span class="dim">1팀 1분</span></div></div>
+    </div>
+    <p class="lead">막히면 <b style="color:var(--gold)">역브레인스토밍</b>으로 전환하세요 — “어떻게 하면 이걸 더 최악으로 만들까?”</p>
+  </section>
+
+  <!-- 24 마무리 -->
   <section class="slide">
     <div class="hero"><img src="assets/beetle.jpg" alt=""></div>
     <p class="eyebrow">마무리</p>
     <h2>오늘 한 일</h2>
     <ul>
-      <li>지난 강의의 렌즈(관찰 → 추상화 → 적용)를 다시 꺼내 확인했고</li>
-      <li>KJ법으로 흩어진 아이디어를 덩어리로 묶어 <b>이름을 붙였고</b>(= 추상화를 직접 해봤고)</li>
-      <li>그 결과를 FigJam 위에서 스토리라인으로 배치해 피칭했습니다</li>
+      <li>지난 강의의 렌즈(관찰 → 추상화 → 적용)를 퀴즈로 다시 확인했고</li>
+      <li>발상 기법 7가지를 배운 뒤, <b>크레이지 8s + KJ법</b> 조합으로 아이디어를 모았고</li>
+      <li>FigJam에서 묶고 <b>이름을 붙여</b>(= 추상화를 직접 해봤고) 스토리라인으로 배치했고</li>
+      <li>문제 → 해결 → 근거 틀로 피칭했습니다</li>
     </ul>
     <p class="lead">다음 시간엔 오늘 피칭한 아이디어 중 하나를 골라 실제로 만들어봅니다.</p>
   </section>
@@ -367,7 +530,7 @@
 </div>
 
 <nav class="hud"><i id="bar"></i></nav>
-<div class="counter"><span id="cur">1</span> / <span id="tot">15</span></div>
+<div class="counter"><span id="cur">1</span> / <span id="tot">24</span></div>
 <div class="hint">← → 또는 스페이스로 이동 · F 전체화면</div>
 
 <script>
@@ -382,7 +545,7 @@
     slides.forEach((s, k) => s.classList.toggle('active', k === i));
     cur.textContent = i + 1;
     bar.style.width = ((i + 1) / slides.length * 100) + '%';
-    location.hash = i + 1;
+    history.replaceState(null, '', '#' + (i + 1));
   }
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }

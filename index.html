@@ -3,1131 +3,746 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>디자인씽킹×자연모사 — 복습 &amp; 아이디어 피칭</title>
+<title>자연을 보고 만들기 — 아이디어부터 웹까지</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#141f36;
-    --navy-2:#1c2a46;
-    --navy-3:#25355a;
-    --gold:#f5bb4b;
-    --gold-soft:#fbdc9c;
-    --ink:#eff3f9;
-    --ink-dim:#a9b6cd;
-    --line:rgba(239,243,249,.13);
-    --teal:#54d6c8;
-    --coral:#f58b7a;
-    --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Malgun Gothic",sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --navy:#141f36; --navy-2:#1c2a46; --navy-3:#25355a;
+    --gold:#f5bb4b; --gold-soft:#fbdc9c;
+    --ink:#eff3f9; --ink-dim:#a9b6cd; --line:rgba(239,243,249,.13);
+    --teal:#54d6c8; --coral:#f58b7a;
+    --font:"Pretendard Variable",Pretendard,-apple-system,system-ui,"Malgun Gothic",sans-serif;
+    --mono:"IBM Plex Mono",monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{background:var(--navy);color:var(--ink);font-family:var(--font);overflow:hidden;-webkit-font-smoothing:antialiased}
-
   .deck{position:relative;width:100vw;height:100vh}
-  .slide{position:absolute;inset:0;display:none;padding:7vh 7vw;flex-direction:column;justify-content:center;animation:fade .3s ease}
+  .slide{position:absolute;inset:0;display:none;padding:8vh 7vw;flex-direction:column;justify-content:center;animation:f .3s ease}
   .slide.active{display:flex}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.slide{animation:none}}
 
-  .eyebrow{font-family:var(--mono);font-size:clamp(11px,1.05vw,14px);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8vh;font-weight:500}
-  h1{font-size:clamp(32px,5.4vw,72px);font-weight:800;line-height:1.14;letter-spacing:-.02em;word-break:keep-all}
-  h2{font-size:clamp(25px,3.5vw,46px);font-weight:800;line-height:1.24;letter-spacing:-.018em;margin-bottom:2.4vh;word-break:keep-all}
-  h3{font-size:clamp(16px,1.85vw,25px);font-weight:700;line-height:1.4;margin-bottom:1.2vh;color:var(--gold-soft);word-break:keep-all}
-  p,li{font-size:clamp(13.5px,1.45vw,20px);line-height:1.68;word-break:keep-all}
-  .lead{font-size:clamp(15px,1.75vw,25px);color:var(--ink-dim);margin-top:2vh;max-width:56ch;line-height:1.62}
-  .dim{color:var(--ink-dim)}
-  b,strong{font-weight:700}
-
-  .rule{width:88px;height:5px;background:var(--gold);border-radius:3px;margin:3vh 0}
-
-  ul{list-style:none;display:flex;flex-direction:column;gap:1.3vh;margin-top:1vh}
-  ul li{padding-left:1.4em;position:relative;color:var(--ink)}
-  ul li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
-  ol{counter-reset:s;list-style:none;display:flex;flex-direction:column;gap:1.5vh;margin-top:1vh}
-  ol li{counter-increment:s;padding-left:2.5em;position:relative;color:var(--ink)}
-  ol li::before{content:counter(s);position:absolute;left:0;top:.08em;width:1.65em;height:1.65em;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.8em;font-weight:800;display:grid;place-items:center}
+  .eyebrow{font-family:var(--mono);font-size:clamp(11px,1vw,14px);letter-spacing:.16em;color:var(--gold);margin-bottom:2vh}
+  h1{font-size:clamp(34px,6vw,80px);font-weight:800;line-height:1.12;letter-spacing:-.02em;word-break:keep-all}
+  h2{font-size:clamp(28px,4.2vw,58px);font-weight:800;line-height:1.2;letter-spacing:-.02em;margin-bottom:2.4vh;word-break:keep-all}
+  .big{font-size:clamp(20px,2.6vw,36px);font-weight:700;line-height:1.45;word-break:keep-all}
+  .say{font-size:clamp(16px,2vw,28px);color:var(--ink-dim);line-height:1.55;max-width:44ch;word-break:keep-all}
+  .say b{color:var(--ink)}
+  .gold{color:var(--gold)}
+  .tealc{color:var(--teal)}
+  .coralc{color:var(--coral)}
 
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:center}
-  .cols.wide-left{grid-template-columns:1.3fr .9fr}
-  .shot{width:100%;border-radius:14px;display:block;box-shadow:0 22px 55px -22px rgba(0,0,0,.85)}
-  figure{display:flex;flex-direction:column;gap:1vh}
-  figcaption{font-size:clamp(11.5px,1.05vw,14px);color:var(--ink-dim)}
+  .cols.img-right{grid-template-columns:1fr 1.15fr}
+  .shot{width:100%;border-radius:16px;display:block;box-shadow:0 24px 60px -24px rgba(0,0,0,.9)}
+  .full{position:absolute;inset:0;z-index:-1;opacity:.36}
+  .full img{width:100%;height:100%;object-fit:cover}
+  .full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 26%,rgba(20,31,54,.55) 70%,rgba(20,31,54,.3))}
 
-  .cards{display:grid;gap:1.5vw;margin-top:1.5vh}
-  .cards.c2{grid-template-columns:repeat(2,1fr)}
-  .cards.c3{grid-template-columns:repeat(3,1fr)}
-  .cards.c4{grid-template-columns:repeat(4,1fr)}
-  .card{background:var(--navy-2);border:1px solid var(--line);border-radius:14px;padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:.85vh}
-  .card .n{font-family:var(--mono);color:var(--gold);font-size:clamp(10.5px,.95vw,13px);letter-spacing:.1em;font-weight:500}
-  .card h4{font-size:clamp(14.5px,1.55vw,21px);font-weight:700;line-height:1.35;word-break:keep-all}
-  .card p{font-size:clamp(12px,1.24vw,16.5px);color:var(--ink-dim);line-height:1.58}
-  .card .tag{font-family:var(--mono);font-size:clamp(10px,.9vw,12.5px);color:var(--teal);letter-spacing:.06em}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;margin-top:1vh}
+  .four{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5vw;margin-top:1vh}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:3vw;margin-top:1vh}
+  .tile{background:var(--navy-2);border:1px solid var(--line);border-radius:16px;padding:3vh 1.6vw;text-align:center}
+  .tile .ico{font-size:clamp(28px,3.4vw,46px);line-height:1;margin-bottom:1.4vh}
+  .tile .t{font-size:clamp(15px,1.75vw,24px);font-weight:700;word-break:keep-all}
+  .tile .d{font-size:clamp(12.5px,1.35vw,18px);color:var(--ink-dim);margin-top:.8vh;line-height:1.5;word-break:keep-all}
+  .tile.hi{background:rgba(245,187,75,.12);border-color:var(--gold)}
+  .tile.tl{background:rgba(84,214,200,.1);border-color:rgba(84,214,200,.45)}
 
-  .quiz{background:var(--navy-2);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;padding:2.8vh 2vw}
-  .choices{display:grid;grid-template-columns:1fr 1fr;gap:1.2vh 1.6vw;margin-top:2.2vh}
-  .choice{background:var(--navy-3);border-radius:10px;padding:1.35vh 1.1vw;font-size:clamp(12.5px,1.35vw,18px);line-height:1.45}
-  .choice.correct{background:rgba(245,187,75,.17);border:1px solid var(--gold);font-weight:700}
-  .answer{margin-top:2.4vh;padding-top:2vh;border-top:1px solid var(--line);color:var(--gold-soft);font-size:clamp(12.5px,1.32vw,17.5px);line-height:1.62}
-  .answer b{color:var(--gold)}
+  .card{background:var(--navy-2);border:1px solid var(--line);border-radius:18px;padding:3.4vh 2.2vw}
+  .card h3{font-size:clamp(18px,2.1vw,30px);font-weight:800;margin-bottom:1.4vh;word-break:keep-all}
+  .card p{font-size:clamp(13.5px,1.55vw,21px);color:var(--ink-dim);line-height:1.6;word-break:keep-all}
+  .card.tl{border-left:6px solid var(--teal)}
+  .card.gd{border-left:6px solid var(--gold);background:rgba(245,187,75,.09)}
+  .card.cr{border-left:6px solid var(--coral)}
+  .card ul{list-style:none;display:flex;flex-direction:column;gap:1.1vh;margin-top:.6vh}
+  .card li{font-size:clamp(13.5px,1.55vw,21px);padding-left:1.3em;position:relative;line-height:1.55;word-break:keep-all}
+  .card li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .card.tl li::before{background:var(--teal)}
+  .card.cr li::before{background:var(--coral)}
 
-  .timeline{display:flex;gap:.9vw;margin-top:2.4vh}
-  .tl{flex:1;background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:2vh 1vw;text-align:center}
-  .tl .t{font-family:var(--mono);color:var(--gold);font-size:clamp(13px,1.45vw,19px);font-weight:600}
-  .tl .l{font-size:clamp(11.5px,1.2vw,15.5px);color:var(--ink-dim);margin-top:.7vh;line-height:1.45}
+  .chip{display:inline-block;background:rgba(84,214,200,.13);border:1px solid rgba(84,214,200,.45);color:var(--teal);border-radius:100px;padding:.4em 1.1em;font-size:clamp(13px,1.4vw,19px);font-weight:700;margin-top:2vh}
+  .chip.gd{background:rgba(245,187,75,.14);border-color:var(--gold);color:var(--gold)}
+  .kbd{font-family:var(--mono);background:var(--navy-3);border:1px solid var(--line);border-radius:6px;padding:.1em .5em;font-size:.85em;color:var(--gold-soft)}
 
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3vw;margin-top:2.4vh}
-  .step{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:2.2vh 1.2vw;position:relative;overflow:hidden}
-  .step::after{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--gold)}
-  .step .k{font-family:var(--mono);color:var(--gold);font-size:clamp(17px,2vw,26px);font-weight:600;line-height:1}
-  .step h4{margin:1.1vh 0 .6vh;font-size:clamp(13.5px,1.45vw,19px);font-weight:700;word-break:keep-all}
-  .step p{font-size:clamp(11.5px,1.2vw,15.5px);color:var(--ink-dim);line-height:1.52}
-
-  .kbd{font-family:var(--mono);background:var(--navy-3);border:1px solid var(--line);border-radius:6px;padding:.12em .5em;font-size:.88em;color:var(--gold-soft);font-weight:500}
-  .chip{display:inline-block;background:rgba(84,214,200,.13);border:1px solid rgba(84,214,200,.42);color:var(--teal);border-radius:100px;padding:.35em .95em;font-size:clamp(11.5px,1.18vw,15px);font-weight:600}
-  .chip.coral{background:rgba(245,139,122,.13);border-color:rgba(245,139,122,.42);color:var(--coral)}
-
-  .hero{position:absolute;inset:0;z-index:-1;opacity:.32}
-  .hero img{width:100%;height:100%;object-fit:cover}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 24%,rgba(20,31,54,.6) 68%,rgba(20,31,54,.38))}
-
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:2.4vw;margin-top:1.5vh}
-  .panel{background:var(--navy-2);border:1px solid var(--line);border-radius:14px;padding:2.6vh 1.7vw}
-  .panel h3{margin-bottom:1.4vh}
-  .panel ul{margin-top:0}
-  .panel li{font-size:clamp(12.5px,1.3vw,17px)}
-
-  .quote{border-left:4px solid var(--teal);padding-left:1.4vw;color:var(--ink-dim);font-size:clamp(14px,1.5vw,20px);line-height:1.6;margin-top:2vh}
-
-  /* 인라인 SVG 그림 */
-  .fig{width:100%;height:auto;max-height:46vh;display:block;margin-top:1.5vh}
+  .fig{width:100%;height:auto;max-height:48vh;display:block}
   .fig text{font-family:var(--font);fill:var(--ink)}
-  .fig .lbl{font-size:15px;font-weight:700}
-  .fig .sub{font-size:12.5px;fill:var(--ink-dim);font-weight:500}
-  .fig .big{font-size:20px;font-weight:800}
-  .fig .box{fill:var(--navy-2);stroke:var(--line);stroke-width:1.5;rx:12}
-  .fig .box-gold{fill:rgba(245,187,75,.14);stroke:var(--gold);stroke-width:1.5;rx:12}
-  .fig .box-teal{fill:rgba(84,214,200,.12);stroke:var(--teal);stroke-width:1.5;rx:12}
-  .fig .box-coral{fill:rgba(245,139,122,.12);stroke:var(--coral);stroke-width:1.5;rx:12}
-  .fig .arrow{stroke:var(--gold);stroke-width:2.5;fill:none;marker-end:url(#ah)}
-  .fig .arrow-dim{stroke:var(--ink-dim);stroke-width:2;fill:none;marker-end:url(#ahd)}
-  .fig .gold{fill:var(--gold)}
-  .fig .teal{fill:var(--teal)}
-  .fig .coral{fill:var(--coral)}
-  .figrow{display:grid;grid-template-columns:1fr 1fr;gap:2.4vw;align-items:center;margin-top:1vh}
+  .fig .l{font-size:17px;font-weight:700}
+  .fig .s{font-size:14px;fill:var(--ink-dim);font-weight:500}
+  .fig .box{fill:var(--navy-2);stroke:var(--line);stroke-width:1.5}
+  .fig .gd{fill:rgba(245,187,75,.15);stroke:#f5bb4b;stroke-width:1.5}
+  .fig .tl{fill:rgba(84,214,200,.13);stroke:#54d6c8;stroke-width:1.5}
+  .fig .cr{fill:rgba(245,139,122,.13);stroke:#f58b7a;stroke-width:1.5}
+  .fig .ar{stroke:#f5bb4b;stroke-width:3;fill:none;marker-end:url(#a)}
+  .fig .gold{fill:#f5bb4b} .fig .teal{fill:#54d6c8} .fig .coral{fill:#f58b7a}
 
   nav.hud{position:fixed;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.07);z-index:10}
-  nav.hud i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s ease}
+  nav.hud i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s}
   .counter{position:fixed;right:2.2vw;bottom:2.3vh;z-index:10;font-family:var(--mono);font-size:12.5px;color:var(--ink-dim)}
   .hint{position:fixed;left:2.2vw;bottom:2.3vh;z-index:10;font-size:11.5px;color:rgba(169,182,205,.5)}
 </style>
 </head>
 <body>
-<!-- 전역 화살표 마커 (모든 슬라이드의 SVG가 참조) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f5bb4b"/></marker>
-    <marker id="ahd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a9b6cd"/></marker>
-  </defs>
-</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f5bb4b"/></marker>
+</defs></svg>
+
 <div class="deck" id="deck">
 
-  <!-- 1 타이틀 -->
-  <section class="slide active">
-    <div class="hero"><img src="assets/kingfisher.jpg" alt=""></div>
-    <p class="eyebrow">디자인씽킹 × 자연모사 · 2교시</p>
-    <h1>복습 그리고<br>아이디어 피칭</h1>
-    <div class="rule"></div>
-    <p class="lead">지난 시간에 배운 렌즈를 꺼내서, 이번엔 여러분의 문제에 직접 써봅니다.<br>브레인스토밍으로 모으고, FigJam에서 정리하고, 피칭까지.</p>
-  </section>
+<!-- 1 -->
+<section class="slide active">
+  <div class="full"><img src="assets/kingfisher.jpg" alt=""></div>
+  <p class="eyebrow">디자인씽킹 × 자연모사</p>
+  <h1>자연을 보고<br>만들어 봐요</h1>
+  <p class="say" style="margin-top:3vh">아이디어를 모으고, 발표하고,<br>웹페이지로 만들어서 친구들에게 보여줄 거예요.</p>
+</section>
 
-  <!-- 2 순서 -->
-  <section class="slide">
-    <p class="eyebrow">오늘 순서 · 2교시 구성</p>
-    <h2>이렇게 진행합니다</h2>
-    <p class="eyebrow" style="margin-top:1vh;margin-bottom:.8vh">1교시 · 60분 — 아이디어 만들고 피칭하기</p>
-    <div class="timeline" style="margin-top:0">
-      <div class="tl"><div class="t">12분</div><div class="l">복습 퀴즈<br>자연모사·디자인씽킹</div></div>
-      <div class="tl"><div class="t">3분</div><div class="l">오늘의 과제<br>평가 기준</div></div>
-      <div class="tl"><div class="t">12분</div><div class="l">발상 기법<br>KJ법 외 6가지</div></div>
-      <div class="tl"><div class="t">8분</div><div class="l">FigJam<br>사용법</div></div>
-      <div class="tl"><div class="t">7분</div><div class="l">피칭 기법<br>4가지 틀</div></div>
-      <div class="tl"><div class="t">18분</div><div class="l">실습 + 피칭</div></div>
+<!-- 2 -->
+<section class="slide">
+  <p class="eyebrow">오늘 순서</p>
+  <h2>네 걸음으로 갑니다</h2>
+  <div class="four">
+    <div class="tile"><div class="ico">🔍</div><div class="t">복습</div><div class="d">지난 시간에 본 자연의 답들</div></div>
+    <div class="tile"><div class="ico">💡</div><div class="t">아이디어</div><div class="d">모으고 묶고 발표하기</div></div>
+    <div class="tile"><div class="ico">🤖</div><div class="t">AI 알기</div><div class="d">AI는 무엇을 잘할까</div></div>
+    <div class="tile"><div class="ico">🌐</div><div class="t">웹 만들기</div><div class="d">만들어서 인터넷에 올리기</div></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <p class="eyebrow">복습 · 한 장 요약</p>
+  <div class="cols img-right">
+    <div>
+      <h2>자연은<br><span class="gold">먼저 풀어놓은</span><br>답이었어요</h2>
+      <p class="say">사람보다 훨씬 오래, 38억 년 동안<br>고쳐 만든 답이니까요.</p>
     </div>
-    <p class="eyebrow" style="margin-top:2.4vh;margin-bottom:.8vh">2교시 · 60분 — AI를 알고, 웹으로 만들기</p>
-    <div class="timeline" style="margin-top:0">
-      <div class="tl"><div class="t">12분</div><div class="l">AI·생성형 AI<br>LLM이란</div></div>
-      <div class="tl"><div class="t">13분</div><div class="l">AI가 할 일 vs<br>내가 할 일</div></div>
-      <div class="tl"><div class="t">12분</div><div class="l">HTML·CSS·JS<br>배포란</div></div>
-      <div class="tl"><div class="t">23분</div><div class="l">에이전트로 제작<br>배포 + 링크 공유</div></div>
+    <img class="shot" src="assets/bird-train.jpg" alt="물총새와 신칸센">
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <p class="eyebrow">복습 ① 물총새</p>
+  <div class="cols img-right">
+    <div>
+      <h2>물에 <span class="gold">첨벙</span> 안 하는 부리</h2>
+      <p class="say">물총새는 물보라를 거의 안 내고 들어가요.<br>이 부리 모양을 그대로 가져와서<br><b>기차 앞머리</b>를 만들었어요.</p>
+      <span class="chip">시끄럽던 기차가 조용해졌어요</span>
     </div>
-  </section>
+    <img class="shot" src="assets/beak.jpg" alt="물총새 부리">
+  </div>
+</section>
 
-  <!-- === Part 6 · AI가 뭐예요? === -->
-
-  <!-- 3 AI란 -->
-  <section class="slide">
-    <p class="eyebrow">Part 1 · 복습</p>
-    <h2>지난 시간의 핵심은 사례가 아니라 <span style="color:var(--gold)">렌즈</span>였습니다</h2>
-    <div class="cards c3">
-      <div class="card"><div class="n">FRAME 01</div><h4>관찰 → 추상화 → 적용</h4><p>보고, 원리만 뽑아내고, 다른 재료·다른 목적에 옮겨 심는 3단계</p></div>
-      <div class="card"><div class="n">FRAME 02</div><h4>생물모방 디자인 나선 6단계</h4><p>Define · <b style="color:var(--gold-soft)">Biologize</b> · Discover · Abstract · Emulate · Evaluate</p></div>
-      <div class="card"><div class="n">FRAME 03</div><h4>물어볼 상대는 셋</h4><p>사람의 경험 · 38억 년 검증된 자연 · 빠르지만 검증이 필요한 AI</p></div>
+<!-- 5 -->
+<section class="slide">
+  <p class="eyebrow">복습 ② 우엉씨</p>
+  <div class="cols img-right">
+    <div>
+      <h2>옷에 붙는 씨앗<br>= <span class="gold">찍찍이</span></h2>
+      <p class="say">산에서 옷에 달라붙은 씨앗을 확대해보니<br>작은 <b>갈고리</b>가 잔뜩 있었어요.</p>
+      <span class="chip">그대로 흉내 내서 만든 게 찍찍이(벨크로)</span>
     </div>
-  </section>
+    <img class="shot" src="assets/velcro.jpg" alt="우엉 갈고리와 찍찍이 갈고리 비교">
+  </div>
+</section>
 
-  <!-- 4 퀴즈1 -->
-  <section class="slide">
-    <p class="eyebrow">복습 퀴즈 1 · 객관식</p>
-    <div class="cols wide-left">
-      <div class="quiz">
-        <h3>디자인씽킹은 5단계, 생물모방 나선은 6단계.<br>자연모사에만 있는 그 한 단계가 하는 일은?</h3>
-        <div class="choices">
-          <div class="choice">① 시제품을 더 빨리 만든다</div>
-          <div class="choice correct">② 문제를 생물학의 언어로 바꿔 질문한다</div>
-          <div class="choice">③ 사용자 인터뷰를 한 번 더 한다</div>
-          <div class="choice">④ AI에게 먼저 물어본다</div>
-        </div>
-        <p class="answer"><b>정답 ② Biologize</b> — “가벼운 텐트를 어떻게 지을까”를 “자연에서는 최소 재료로 어떻게 구조를 지탱할까”로 바꾸는 순간, 찾아볼 대상이 텐트 회사에서 지구의 모든 생물로 넓어집니다.</p>
-      </div>
-      <figure>
-        <img class="shot" src="assets/frame.jpg" alt="질문의 프레임">
-        <figcaption>s02 · 질문의 프레임</figcaption>
-      </figure>
+<!-- 6 -->
+<section class="slide">
+  <p class="eyebrow">복습 ③ 딱정벌레</p>
+  <div class="cols img-right">
+    <div>
+      <h2>등으로 <span class="gold">물을 모으는</span> 벌레</h2>
+      <p class="say">비가 안 오는 사막에서<br>안개를 등에 맺히게 해서 마셔요.</p>
+      <span class="chip">이 원리로 안개에서 물 모으는 그물을 만들었어요</span>
     </div>
-  </section>
+    <img class="shot" src="assets/beetle-macro.jpg" alt="딱정벌레 등딱지 확대">
+  </div>
+</section>
 
-  <!-- 5 퀴즈2 -->
-  <section class="slide">
-    <p class="eyebrow">복습 퀴즈 2 · 객관식</p>
-    <div class="cols wide-left">
-      <div class="quiz">
-        <h3>벨크로를 만든 과정 “관찰 → 추상화 → 적용”.<br>이 중 ‘추상화’가 실제로 한 일은?</h3>
-        <div class="choices">
-          <div class="choice">① 왜 잘 붙는지 자세히 들여다봤다</div>
-          <div class="choice correct">② 원리만 남기고 “씨앗”이라는 사실을 지웠다</div>
-          <div class="choice">③ 나일론으로 제품을 만들어 팔았다</div>
-          <div class="choice">④ 우주복에 쓸 수 있는지 실험했다</div>
-        </div>
-        <p class="answer"><b>정답 ②</b> — 씨앗이든 나일론이든 똑같이 작동하는 <b>원리</b>만 남기고 재료와 형태는 지우는 것. 이게 추상화의 전부입니다.</p>
-      </div>
-      <figure>
-        <img class="shot" src="assets/burr.jpg" alt="우엉씨 갈고리">
-        <figcaption>s01 · 우엉씨 갈고리 → 벨크로</figcaption>
-      </figure>
+<!-- 7 -->
+<section class="slide">
+  <p class="eyebrow">복습 ④ 점균</p>
+  <div class="cols img-right">
+    <div>
+      <h2>뇌가 없는데<br><span class="gold">지도를 그려요</span></h2>
+      <p class="say">먹이를 놓아두었더니<br>가장 짧은 길만 남기고 정리했어요.</p>
+      <span class="chip">사람이 만든 지하철 노선도와 거의 똑같았어요</span>
     </div>
-  </section>
+    <img class="shot" src="assets/subway.jpg" alt="점균 네트워크">
+  </div>
+</section>
 
-  <!-- 6 퀴즈3 -->
-  <section class="slide">
-    <p class="eyebrow">복습 퀴즈 3 · 주관식</p>
-    <div class="cols wide-left">
-      <div class="quiz">
-        <h3>왜 “사람의 경험 · 자연 · AI” 셋 모두에게 물어야 할까요?<br>각각의 장점과 한계를 들어 설명하세요.</h3>
-        <p class="answer" style="border:none;padding-top:1.6vh">
-          <b>모범답안 방향</b><br>
-          · <b>사람의 경험</b> — 쌓인 시간이 짧고(길어야 몇십 년) 관점이 좁을 수 있음<br>
-          · <b>자연</b> — 38억 년 검증된 설계도지만, 사람 문제에 맞게 번역(Biologize)이 필요<br>
-          · <b>AI</b> — 빠르지만 “다음 단어를 확률로 예측”할 뿐이라 자신감과 정확도가 무관, 늘 검증(Evaluate) 필요
-        </p>
-      </div>
-      <figure>
-        <img class="shot" src="assets/slimemold.jpg" alt="점균">
-        <figcaption>case3 · 뇌 없이 최단경로를 찾은 점균</figcaption>
-      </figure>
+<!-- 8 -->
+<section class="slide">
+  <p class="eyebrow">복습 · 오늘 쓸 렌즈</p>
+  <h2>모두 <span class="gold">같은 순서</span>였어요</h2>
+  <div class="three">
+    <div class="tile"><div class="ico">👀</div><div class="t">1. 관찰</div><div class="d">이상한 걸 그냥 지나치지 않고 자세히 보기</div></div>
+    <div class="tile hi"><div class="ico">✂️</div><div class="t">2. 추상화</div><div class="d">겉모습은 지우고 <b>작동하는 원리만</b> 남기기</div></div>
+    <div class="tile"><div class="ico">🛠️</div><div class="t">3. 적용</div><div class="d">그 원리를 완전히 다른 곳에 써먹기</div></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <p class="eyebrow">복습 · 가장 중요한 한 단계</p>
+  <div class="cols">
+    <div>
+      <h2>추상화 =<br><span class="gold">껍데기 벗기기</span></h2>
+      <p class="say">“씨앗”은 잊어버리고<br><b>“갈고리가 서로 걸린다”</b>만 남기는 것.</p>
+      <span class="chip gd">그래야 나일론으로도 만들 수 있어요</span>
     </div>
-  </section>
-
-  <!-- 7 퀴즈4 -->
-  <section class="slide">
-    <p class="eyebrow">복습 퀴즈 4 · 주관식 → 오늘의 과제</p>
-    <div class="cols wide-left">
-      <div class="quiz">
-        <h3>‘관찰 → 추상화 → 적용’ 렌즈를<br>내 주변의 불편한 문제 하나에 직접 적용해보세요.</h3>
-        <ul style="margin-top:1.8vh">
-          <li>어떤 문제를 골랐나요?</li>
-          <li>자연에서 무엇을 관찰하고 싶나요?</li>
-          <li>거기서 뽑아낼 <b>원리</b>는 무엇인가요?</li>
-          <li>그 원리를 어떻게 적용할 건가요?</li>
-        </ul>
-        <p class="answer"><b>이 질문이 오늘의 피칭 주제입니다.</b> 지금부터 이 답을 팀과 함께 만들어봅니다.</p>
-      </div>
-      <figure>
-        <img class="shot" src="assets/challenge.jpg" alt="미니 챌린지">
-        <figcaption>s07 · 직접 손으로 답을 찾는 시간</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 8 평가기준 -->
-  <section class="slide">
-    <p class="eyebrow">Part 2 · 오늘의 활동</p>
-    <h2>피칭은 이 세 가지로 평가합니다</h2>
-    <div class="cards c3">
-      <div class="card"><div class="n">CRITERIA 01</div><h4>관찰 대상이 구체적인가</h4><p>“새” 말고 “물총새가 물에 들어가는 순간의 부리 각도”처럼.</p></div>
-      <div class="card"><div class="n">CRITERIA 02</div><h4>원리가 형태가 아니라 작동 방식인가</h4><p>“뾰족하게 생겼다”가 아니라 “물살을 옆으로 밀지 않고 갈라낸다”.</p></div>
-      <div class="card"><div class="n">CRITERIA 03</div><h4>적용이 원리와 논리적으로 연결되는가</h4><p>뽑아낸 원리가 그 문제를 왜 푸는지 설명할 수 있어야 합니다.</p></div>
-    </div>
-    <p class="lead">완성도보다 <b style="color:var(--gold)">순서를 제대로 밟았는지</b>가 핵심입니다.</p>
-  </section>
-
-  <!-- === Part 3 · AI 윤리와 학습 활용 (경기도교육청 학생용 가이드라인 기반) === -->
-
-  <!-- 9 AI 섹션 도입 -->
-  <section class="slide">
-    <p class="eyebrow">Part 3 · 발상 기법</p>
-    <h2>아이디어가 안 나오는 건<br>머리가 아니라 <span style="color:var(--gold)">방법</span>의 문제입니다</h2>
-    <div class="quote">“자유롭게 아무거나 말해보세요”가 가장 안 통하는 지시입니다.<br>제약과 순서를 주면 오히려 아이디어가 쏟아집니다.</div>
-    <div class="cards c3" style="margin-top:3vh">
-      <div class="card"><div class="n">문제 01</div><h4>목소리 큰 사람이 다 정한다</h4><p>→ 말로 하지 말고 <b>각자 조용히 쓰는</b> 기법으로</p></div>
-      <div class="card"><div class="n">문제 02</div><h4>비슷한 아이디어만 맴돈다</h4><p>→ <b>억지 제약</b>을 걸어 다른 방향으로 밀어내는 기법으로</p></div>
-      <div class="card"><div class="n">문제 03</div><h4>많이 나왔는데 정리가 안 된다</h4><p>→ <b>묶고 이름 붙이는</b> 기법으로</p></div>
-    </div>
-  </section>
-
-  <!-- 10 KJ법 -->
-  <section class="slide">
-    <p class="eyebrow">발상 기법 ① · 오늘 메인</p>
-    <h2>KJ법 — 흩어진 아이디어를 덩어리로</h2>
-    <div class="cols">
-      <div>
-        <p>일본 문화인류학자 <b>가와키타 지로(川喜田二郎)</b>가 현장 조사 데이터를 정리하려고 만든 방법. 이니셜을 따서 <b style="color:var(--gold)">KJ법</b>이라 부릅니다.</p>
-        <p class="lead">핵심은 하나 — <b>분류 기준을 먼저 정하지 않는다.</b> 카드를 늘어놓고 “비슷한 것끼리” 모으다 보면 기준이 나중에 저절로 드러납니다.</p>
-      </div>
-      <div>
-        <span class="chip">지난 시간의 ‘추상화’와 같은 동작</span>
-        <p style="margin-top:2vh">그룹에 이름을 붙이는 순간이 바로 추상화입니다. 개별 아이디어에서 공통 원리를 뽑아내는 것 — 벨크로를 만든 그 단계와 똑같습니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11 KJ 4단계 -->
-  <section class="slide">
-    <p class="eyebrow">발상 기법 ① · KJ법 4단계</p>
-    <h2>이 순서대로 하면 됩니다</h2>
-    <div class="steps">
-      <div class="step"><div class="k">01</div><h4>카드 쓰기</h4><p>한 장에 아이디어 하나. 짧은 문장으로. 말하지 말고 각자 조용히.</p></div>
-      <div class="step"><div class="k">02</div><h4>비슷한 것끼리 모으기</h4><p>기준을 정하지 말고 “가까운 느낌”대로 옮겨 붙입니다.</p></div>
-      <div class="step"><div class="k">03</div><h4>그룹에 이름 붙이기</h4><p>이 덩어리를 한 문장으로 부르면? ← 여기가 추상화 지점.</p></div>
-      <div class="step"><div class="k">04</div><h4>관계 배치 · 스토리라인</h4><p>그룹끼리 화살표로 잇고, 발표할 순서로 배치합니다.</p></div>
-    </div>
-  </section>
-
-  <!-- 12 브레인라이팅 & 크레이지8 -->
-  <section class="slide">
-    <p class="eyebrow">발상 기법 ②③ · 조용히 많이 뽑아내기</p>
-    <h2>말하지 않고 쏟아내는 두 가지</h2>
-    <div class="split">
-      <div class="panel">
-        <h3>브레인라이팅 6-3-5</h3>
-        <p class="dim" style="margin-bottom:1.4vh">6명 · 3개씩 · 5분 간격으로 종이를 옆으로</p>
-        <ul>
-          <li>각자 종이에 아이디어 3개를 5분 안에 적는다</li>
-          <li>종이를 옆 사람에게 넘긴다</li>
-          <li>받은 아이디어를 <b>변형·확장</b>해 3개 더 적는다</li>
-          <li>6바퀴 돌면 30분에 108개</li>
-        </ul>
-        <span class="chip" style="margin-top:1.6vh">목소리 큰 사람 문제 해결</span>
-      </div>
-      <div class="panel">
-        <h3>크레이지 에이트 (Crazy 8s)</h3>
-        <p class="dim" style="margin-bottom:1.4vh">종이를 8칸으로 접고 8분 동안 8개</p>
-        <ul>
-          <li>1칸당 <b>1분</b>, 그림으로 그린다(글자 최소화)</li>
-          <li>시간이 강제로 완벽주의를 끊어준다</li>
-          <li>뒤로 갈수록 이상한 게 나오는데, 그게 목적</li>
-          <li>구글 벤처스 디자인 스프린트의 대표 기법</li>
-        </ul>
-        <span class="chip coral" style="margin-top:1.6vh">비슷한 아이디어 탈출</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13 SCAMPER & 역브레인스토밍 -->
-  <section class="slide">
-    <p class="eyebrow">발상 기법 ④⑤ · 억지로 다른 방향 보기</p>
-    <h2>제약을 걸어 시야를 비트는 두 가지</h2>
-    <div class="split">
-      <div class="panel">
-        <h3>스캠퍼 (SCAMPER)</h3>
-        <p class="dim" style="margin-bottom:1.4vh">7개 질문을 기존 아이디어에 하나씩 대본다</p>
-        <ul>
-          <li><b>S</b>ubstitute 다른 걸로 바꾸면?</li>
-          <li><b>C</b>ombine 둘을 합치면? / <b>A</b>dapt 다른 데서 빌려오면?</li>
-          <li><b>M</b>odify 키우거나 줄이면? / <b>P</b>ut to other use 다른 용도로?</li>
-          <li><b>E</b>liminate 없애면? / <b>R</b>everse 순서를 뒤집으면?</li>
-        </ul>
-        <span class="chip" style="margin-top:1.6vh">자연모사와 궁합: “Adapt”가 곧 Biologize</span>
-      </div>
-      <div class="panel">
-        <h3>역브레인스토밍 (Reverse)</h3>
-        <p class="dim" style="margin-bottom:1.4vh">“어떻게 하면 이 문제를 <b>더 악화</b>시킬까?”</p>
-        <ul>
-          <li>망치는 방법을 신나게 쏟아낸다(웃기니까 잘 나온다)</li>
-          <li>그 목록을 하나씩 <b>뒤집어</b> 해결책으로 바꾼다</li>
-          <li>“학교가 더 시끄러우려면?” → 조용하게 만드는 단서가 나옴</li>
-        </ul>
-        <span class="chip coral" style="margin-top:1.6vh">아이디어가 하나도 안 나올 때 특효</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 14 HMW & 마인드맵 -->
-  <section class="slide">
-    <p class="eyebrow">발상 기법 ⑥⑦ · 질문을 다듬고 넓히기</p>
-    <h2>시작 질문을 잘 만드는 두 가지</h2>
-    <div class="split">
-      <div class="panel">
-        <h3>HMW 질문법 (How Might We)</h3>
-        <p class="dim" style="margin-bottom:1.4vh">“우리가 어떻게 하면 ~할 수 있을까?”</p>
-        <ul>
-          <li>불만을 질문으로 바꾼다: “급식 줄이 길다” → “어떻게 하면 기다리는 시간이 지루하지 않을까?”</li>
-          <li>너무 좁으면(→해답이 하나뿐) 넓히고, 너무 넓으면 좁힌다</li>
-          <li>이 질문 한 줄이 이후 30분의 방향을 정한다</li>
-        </ul>
-        <span class="chip" style="margin-top:1.6vh">Define 단계의 도구</span>
-      </div>
-      <div class="panel">
-        <h3>마인드맵</h3>
-        <p class="dim" style="margin-bottom:1.4vh">가운데 주제에서 가지를 뻗어 나간다</p>
-        <ul>
-          <li>생각의 <b>연결</b>이 보여서 빠진 영역을 발견하기 좋다</li>
-          <li>혼자 준비할 때, 또는 KJ법 전 워밍업으로</li>
-          <li>가지 끝의 단어들이 그대로 KJ법의 카드가 된다</li>
-        </ul>
-        <span class="chip coral" style="margin-top:1.6vh">KJ법의 앞 단계로 붙이면 좋음</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 15 기법 선택 가이드 -->
-  <section class="slide">
-    <p class="eyebrow">발상 기법 · 정리</p>
-    <h2>상황별로 이걸 고르세요</h2>
-    <div class="cards c4">
-      <div class="card"><div class="tag">아이디어가 없다</div><h4>크레이지 8s</h4><p>8분 강제 8개. 손이 먼저 움직이게.</p></div>
-      <div class="card"><div class="tag">한 사람만 말한다</div><h4>브레인라이팅</h4><p>말 대신 종이. 모두가 똑같이 3개씩.</p></div>
-      <div class="card"><div class="tag">다 비슷비슷하다</div><h4>SCAMPER · 역발상</h4><p>제약을 걸거나, 일부러 망쳐보기.</p></div>
-      <div class="card"><div class="tag">너무 많아 정리가 안 된다</div><h4>KJ법</h4><p>묶고 이름 붙이기. 오늘 우리가 할 것.</p></div>
-    </div>
-    <p class="lead">오늘은 <b style="color:var(--gold)">크레이지 8s로 뽑고 → KJ법으로 묶는</b> 조합으로 갑니다.</p>
-  </section>
-
-  <!-- 16 FigJam 개요 -->
-  <section class="slide">
-    <p class="eyebrow">Part 4 · FigJam</p>
-    <h2>FigJam으로 KJ법 하기</h2>
-    <p class="lead">FigJam은 브라우저에서 여럿이 동시에 붙이는 온라인 화이트보드입니다. 설치 필요 없고, 링크만 있으면 바로 들어옵니다.</p>
-    <ol style="margin-top:2vh">
-      <li><b>보드 만들기</b> — figma.com → FigJam board 새로 만들기 → 오른쪽 위 <span class="kbd">Share</span>에서 “Anyone with the link → can edit”으로 바꾸고 링크 공유</li>
-      <li><b>영역 나누기</b> — 섹션 도구 <span class="kbd">Shift</span>+<span class="kbd">S</span>로 “아이디어 / 그룹 / 스토리라인” 3구역을 미리 그려둡니다</li>
-      <li><b>이름 확인</b> — 각자 우측 상단 아바타에 이름을 넣어두면 누가 뭘 붙였는지 보입니다</li>
-    </ol>
-  </section>
-
-  <!-- 17 FigJam 실습1 -->
-  <section class="slide">
-    <p class="eyebrow">Part 4 · FigJam 실습 ①</p>
-    <h2>카드 쓰기 &amp; 모으기</h2>
-    <ol>
-      <li><b>스티키 노트</b> — <span class="kbd">S</span>를 누르고 캔버스를 클릭하면 바로 생성. 한 장에 아이디어 하나, 5분간 <b>대화 없이</b> 각자 붙입니다.</li>
-      <li><b>색으로 구분</b> — 오른쪽 패널에서 색 변경. 예: 노랑=문제, 초록=관찰한 생물, 파랑=뽑아낸 원리</li>
-      <li><b>모으기</b> — 비슷한 카드를 드래그해 가까이 붙입니다. 여러 장은 드래그 박스로 한 번에 선택해 이동.</li>
-      <li><b>정리</b> — 겹치면 선택 후 우클릭 → <span class="kbd">Tidy up</span>으로 격자 정렬</li>
-    </ol>
-  </section>
-
-  <!-- 18 FigJam 실습2 -->
-  <section class="slide">
-    <p class="eyebrow">Part 4 · FigJam 실습 ②</p>
-    <h2>이름 붙이고 · 잇고 · 고르기</h2>
-    <ol>
-      <li><b>그룹 이름</b> — 텍스트 <span class="kbd">T</span> 또는 섹션 제목으로 덩어리마다 한 문장 이름을 답니다 <span class="chip" style="margin-left:.5em">= 추상화</span></li>
-      <li><b>관계 잇기</b> — 도형 가장자리에 커서를 올리면 나오는 화살표를 끌어 연결. 관찰 → 원리 → 적용 순서로.</li>
-      <li><b>우선순위</b> — 상단 툴바 <span class="kbd">스탬프</span>로 각자 3표씩 투표. 표가 몰린 덩어리가 피칭 후보.</li>
-      <li><b>발표 준비</b> — 발표할 영역을 화면에 꽉 채우고 화면 공유. 커서에 이름이 뜨니 짚어가며 설명하면 됩니다.</li>
-    </ol>
-  </section>
-
-  <!-- === Part 8 · 웹으로 발표자료 만들기 === -->
-
-  <!-- 웹 제작 개요 -->
-  <section class="slide">
-    <p class="eyebrow">Part 5 · 피칭 기법</p>
-    <h2>좋은 아이디어가 <span style="color:var(--gold)">전달되지 않는</span> 이유</h2>
-    <div class="quote">듣는 사람은 “무엇을 만들었나”보다 <b>“왜 그게 답인가”</b>를 먼저 궁금해합니다.<br>그래서 피칭에는 순서가 있습니다.</div>
-    <div class="cards c3" style="margin-top:3vh">
-      <div class="card"><div class="n">흔한 실수 01</div><h4>배경 설명이 너무 길다</h4><p>핵심이 나오기 전에 이미 집중이 끊깁니다.</p></div>
-      <div class="card"><div class="n">흔한 실수 02</div><h4>“좋은 것 같아요”로 끝난다</h4><p>왜 좋은지 근거(관찰·원리)를 안 말합니다.</p></div>
-      <div class="card"><div class="n">흔한 실수 03</div><h4>다음에 뭘 해야 할지 없다</h4><p>듣는 사람이 뭘 도와줄 수 있는지 모릅니다.</p></div>
-    </div>
-  </section>
-
-  <!-- 20 피칭 기법 1,2 -->
-  <section class="slide">
-    <p class="eyebrow">피칭 기법 ①② · 짧게 말하기</p>
-    <h2>30초 안에 끝내는 두 가지 틀</h2>
-    <div class="split">
-      <div class="panel">
-        <h3>엘리베이터 피치</h3>
-        <p class="dim" style="margin-bottom:1.4vh">엘리베이터를 함께 타는 30초 동안 설명 끝내기</p>
-        <ul>
-          <li><b>누가</b> 어떤 상황에서 <b>무엇</b> 때문에 불편한지</li>
-          <li>우리는 <b>무엇</b>을 만들었는지</li>
-          <li>기존과 <b>어떻게 다른지</b> 한 가지만</li>
-        </ul>
-        <p class="answer" style="border-top:1px solid var(--line);margin-top:1.6vh;padding-top:1.4vh">“급식 줄에서 지루한 학생을 위해, 우리는 대기 시간을 게임으로 바꾸는 앱을 만들었고, 기존 알림앱과 달리 <b>줄 서 있는 동안에만</b> 작동합니다.”</p>
-      </div>
-      <div class="panel">
-        <h3>문제 → 해결 → 근거 (3단)</h3>
-        <p class="dim" style="margin-bottom:1.4vh">오늘 우리 수업에 가장 잘 맞는 틀</p>
-        <ul>
-          <li><b>문제</b> — 무엇이 왜 불편한가 (한 문장)</li>
-          <li><b>해결</b> — 무엇을 만들었나 (한 문장)</li>
-          <li><b>근거</b> — 자연에서 관찰한 것 + 뽑아낸 원리</li>
-        </ul>
-        <span class="chip" style="margin-top:1.6vh">평가 기준 3가지와 정확히 대응</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 21 피칭 기법 3,4 -->
-  <section class="slide">
-    <p class="eyebrow">피칭 기법 ③④ · 이야기로 만들기</p>
-    <h2>기억에 남게 만드는 두 가지 틀</h2>
-    <div class="split">
-      <div class="panel">
-        <h3>픽사 스토리 스파인</h3>
-        <p class="dim" style="margin-bottom:1.4vh">빈칸을 채우면 이야기가 되는 문장 틀</p>
-        <ul>
-          <li>옛날 옛적에 ___가 있었어요</li>
-          <li>매일 ___했어요</li>
-          <li><b>그러던 어느 날</b> ___이 일어났어요</li>
-          <li>그래서 ___했고, 결국 ___가 되었어요</li>
-        </ul>
-        <span class="chip" style="margin-top:1.6vh">“그러던 어느 날”이 곧 문제 발견 순간</span>
-      </div>
-      <div class="panel">
-        <h3>10-20-30 규칙</h3>
-        <p class="dim" style="margin-bottom:1.4vh">가이 가와사키가 제안한 발표 자료 원칙</p>
-        <ul>
-          <li>슬라이드 <b>10장</b> 이내</li>
-          <li><b>20분</b> 안에 끝내기</li>
-          <li>글자 크기 <b>30pt</b> 이상 (= 글을 줄여라)</li>
-        </ul>
-        <span class="chip coral" style="margin-top:1.6vh">오늘 피칭은 2분 · 슬라이드 없이 보드로</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 22 오늘의 피칭 틀 -->
-  <section class="slide">
-    <p class="eyebrow">Part 5 · 오늘 쓸 틀</p>
-    <h2>이 한 문장으로 시작하세요</h2>
-    <div class="quiz" style="margin-top:1vh">
-      <h3 style="color:var(--ink);font-size:clamp(17px,2.1vw,30px);line-height:1.55">
-        “저희는 <span style="color:var(--gold)">○○ 문제</span>를 풀려고<br>
-        <span style="color:var(--gold)">△△</span>를 관찰했고, 거기서 <span style="color:var(--gold)">□□ 원리</span>를 뽑아<br>
-        <span style="color:var(--gold)">◇◇</span>에 적용했습니다.”
-      </h3>
-      <p class="answer">그다음 30초 — 왜 그 원리가 이 문제를 푸는지 설명. 마지막 10초 — 다음에 무엇을 더 해보고 싶은지.</p>
-    </div>
-  </section>
-
-  <!-- 23 실습 타임라인 -->
-  <section class="slide">
-    <p class="eyebrow">Part 6 · AI가 뭐예요?</p>
-    <h2>AI는 <span style="color:var(--gold)">규칙을 스스로 찾아내는</span> 기계예요</h2>
-    <svg class="fig" viewBox="0 0 1000 300" role="img" aria-label="일반 프로그램과 기계학습의 차이">
-      <text x="20" y="34" class="lbl sub">예전 방식 · 사람이 규칙을 다 알려줌</text>
-      <rect class="box" x="20" y="52" width="150" height="62"/>
-      <text x="95" y="80" class="lbl" text-anchor="middle">규칙</text>
-      <text x="95" y="100" class="sub" text-anchor="middle">사람이 입력</text>
-      <rect class="box" x="20" y="126" width="150" height="62"/>
-      <text x="95" y="154" class="lbl" text-anchor="middle">데이터</text>
-      <text x="95" y="174" class="sub" text-anchor="middle">사진·숫자</text>
-      <path class="arrow-dim" d="M180 120 L250 120"/>
-      <rect class="box" x="258" y="88" width="120" height="64"/>
-      <text x="318" y="126" class="lbl" text-anchor="middle">컴퓨터</text>
-      <path class="arrow-dim" d="M388 120 L448 120"/>
-      <rect class="box" x="456" y="88" width="120" height="64"/>
-      <text x="516" y="126" class="lbl" text-anchor="middle">정답</text>
-
-      <line x1="620" y1="20" x2="620" y2="280" stroke="rgba(239,243,249,.13)" stroke-width="1.5"/>
-
-      <text x="650" y="34" class="lbl gold" style="font-size:15px">기계학습 · 규칙을 스스로 찾아냄</text>
-      <rect class="box-gold" x="650" y="52" width="130" height="62"/>
-      <text x="715" y="80" class="lbl" text-anchor="middle">데이터</text>
-      <text x="715" y="100" class="sub" text-anchor="middle">개·고양이 사진</text>
-      <rect class="box-gold" x="650" y="126" width="130" height="62"/>
-      <text x="715" y="154" class="lbl" text-anchor="middle">정답</text>
-      <text x="715" y="174" class="sub" text-anchor="middle">"이건 개예요"</text>
-      <path class="arrow" d="M790 120 L850 120"/>
-      <rect class="box-teal" x="858" y="88" width="122" height="64"/>
-      <text x="919" y="120" class="lbl teal" text-anchor="middle">규칙</text>
-      <text x="919" y="140" class="sub" text-anchor="middle">스스로 발견!</text>
-      <text x="650" y="240" class="sub">규칙과 정답의 자리가 <tspan class="gold" style="font-weight:700">서로 바뀌었어요</tspan></text>
-      <text x="650" y="264" class="sub">→ 규칙을 말로 설명하기 어려울 때 쓰는 방법</text>
+    <svg class="fig" viewBox="0 0 440 220" role="img" aria-label="씨앗에서 원리만 남기는 과정">
+      <rect class="box" x="10" y="55" width="120" height="110" rx="14"/>
+      <text x="70" y="100" class="l" text-anchor="middle">🌾 우엉씨</text>
+      <text x="70" y="128" class="s" text-anchor="middle">진짜 씨앗</text>
+      <path class="ar" d="M140 110 L190 110"/>
+      <text x="165" y="96" class="s gold" text-anchor="middle">벗기기</text>
+      <rect class="gd" x="200" y="55" width="120" height="110" rx="14"/>
+      <text x="260" y="100" class="l gold" text-anchor="middle">🪝 갈고리</text>
+      <text x="260" y="128" class="s" text-anchor="middle">걸리는 원리</text>
+      <path class="ar" d="M330 110 L380 110"/>
+      <rect class="tl" x="390" y="55" width="40" height="110" rx="14"/>
+      <text x="410" y="115" class="l teal" text-anchor="middle">✨</text>
     </svg>
-  </section>
+  </div>
+</section>
 
-  <!-- 4 개vs고양이 -->
-  <section class="slide">
-    <p class="eyebrow">Part 6 · 비유로 이해하기</p>
-    <h2>“개와 고양이를 어떻게 구분해?”</h2>
-    <div class="figrow">
-      <div>
-        <p>말로 설명해보세요. 귀가 뾰족하면 고양이? 그런데 귀 뾰족한 개도 있어요. 수염이 있으면? 개도 수염이 있죠.</p>
-        <p class="lead">사람은 <b>보면 바로 아는데</b>, 그 규칙을 말로 적기는 정말 어려워요. 이럴 때 쓰는 게 AI예요.</p>
-        <span class="chip" style="margin-top:1.5vh">사진 수천 장 + 정답 → AI가 스스로 기준을 찾음</span>
-      </div>
-      <svg class="fig" viewBox="0 0 460 300" role="img" aria-label="사진을 많이 보여주면 스스로 구분하게 되는 과정">
-        <rect class="box" x="10" y="30" width="86" height="54"/><text x="53" y="62" class="sub" text-anchor="middle">🐶 사진</text>
-        <rect class="box" x="10" y="96" width="86" height="54"/><text x="53" y="128" class="sub" text-anchor="middle">🐱 사진</text>
-        <rect class="box" x="10" y="162" width="86" height="54"/><text x="53" y="194" class="sub" text-anchor="middle">🐶 사진</text>
-        <rect class="box" x="10" y="228" width="86" height="54"/><text x="53" y="258" class="sub" text-anchor="middle">… 수천 장</text>
-        <path class="arrow" d="M104 156 L160 156"/>
-        <rect class="box-gold" x="168" y="110" width="130" height="92"/>
-        <text x="233" y="148" class="lbl gold" text-anchor="middle">AI</text>
-        <text x="233" y="170" class="sub" text-anchor="middle">기준을 스스로</text>
-        <text x="233" y="188" class="sub" text-anchor="middle">만들어감</text>
-        <path class="arrow" d="M306 156 L360 156"/>
-        <rect class="box-teal" x="368" y="124" width="82" height="64"/>
-        <text x="409" y="150" class="lbl teal" text-anchor="middle">구분</text>
-        <text x="409" y="172" class="sub" text-anchor="middle">성공!</text>
-      </svg>
+<!-- 10 -->
+<section class="slide">
+  <p class="eyebrow">오늘의 미션</p>
+  <h2>이번엔 <span class="gold">우리 차례</span>예요</h2>
+  <p class="say" style="font-size:clamp(18px,2.3vw,32px);max-width:38ch">내 주변의 불편한 것 하나를 골라,<br>자연에서 답을 찾아옵니다.</p>
+  <div class="three" style="margin-top:3vh">
+    <div class="tile"><div class="ico">1️⃣</div><div class="t">무엇을 관찰했나</div><div class="d">“새” 말고 “물총새 부리”처럼 콕 집어서</div></div>
+    <div class="tile"><div class="ico">2️⃣</div><div class="t">어떤 원리인가</div><div class="d">생김새 말고 <b>어떻게 작동하는지</b></div></div>
+    <div class="tile"><div class="ico">3️⃣</div><div class="t">어디에 쓸 건가</div><div class="d">그 원리가 왜 이 문제를 푸는지</div></div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <p class="eyebrow">아이디어 모으기</p>
+  <h2>아이디어가 안 나오는 건<br><span class="gold">방법</span>을 몰라서예요</h2>
+  <p class="say">“아무거나 자유롭게 말해봐”가 제일 안 통해요.<br>대신 <b>규칙이 있는 놀이</b>로 하면 쏟아집니다.</p>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <p class="eyebrow">방법 ① KJ법 · 오늘의 메인</p>
+  <div class="cols">
+    <div>
+      <h2>KJ법 =<br><span class="gold">카드 모으기 놀이</span></h2>
+      <p class="say">종이에 하나씩 적고, 비슷한 것끼리 모으고,<br>모인 덩어리에 <b>이름을 붙이는</b> 놀이예요.</p>
+      <span class="chip">이름 붙이는 순간 = 아까 배운 추상화!</span>
     </div>
-  </section>
-
-  <!-- 5 생성형 AI -->
-  <section class="slide">
-    <p class="eyebrow">Part 6 · 생성형 AI</p>
-    <h2>구분하는 AI vs <span style="color:var(--gold)">만들어내는</span> AI</h2>
-    <svg class="fig" viewBox="0 0 1000 250" role="img" aria-label="분류형 AI와 생성형 AI의 차이">
-      <text x="20" y="30" class="lbl sub">지금까지의 AI · 구분·분류</text>
-      <rect class="box" x="20" y="48" width="170" height="66"/>
-      <text x="105" y="80" class="sub" text-anchor="middle">🐱 이 사진 뭐야?</text>
-      <text x="105" y="100" class="sub" text-anchor="middle">(사진을 줌)</text>
-      <path class="arrow-dim" d="M200 82 L270 82"/>
-      <rect class="box" x="278" y="48" width="170" height="66"/>
-      <text x="363" y="88" class="lbl" text-anchor="middle">“고양이예요”</text>
-
-      <text x="20" y="170" class="lbl gold" style="font-size:15px">생성형 AI · 새로 만들어냄</text>
-      <rect class="box-gold" x="20" y="186" width="170" height="52"/>
-      <text x="105" y="217" class="sub" text-anchor="middle">“고양이를 그려줘”</text>
-      <path class="arrow" d="M200 212 L270 212"/>
-      <rect class="box-teal" x="278" y="186" width="170" height="52"/>
-      <text x="363" y="217" class="lbl teal" text-anchor="middle">🎨 새 그림 완성</text>
-
-      <line x1="500" y1="20" x2="500" y2="240" stroke="rgba(239,243,249,.13)" stroke-width="1.5"/>
-      <text x="530" y="60" class="big gold">비유하자면</text>
-      <text x="530" y="100" class="lbl">따라 그리기를 수백만 번 연습한 화가</text>
-      <text x="530" y="128" class="sub">그림을 아주 많이 봐서, 새 그림도 그려낼 수 있게 된 거예요.</text>
-      <text x="530" y="172" class="lbl">이야기를 수억 번 읽은 이야기꾼</text>
-      <text x="530" y="200" class="sub">다음에 올 말이 무엇일지 아주 잘 이어붙입니다.</text>
-      <text x="530" y="228" class="sub coral">단, “아는 것”이 아니라 “이어붙이는 것”이에요.</text>
+    <svg class="fig" viewBox="0 0 460 240" role="img" aria-label="흩어진 카드를 모아 이름 붙이기">
+      <rect class="box" x="10" y="30" width="46" height="34" rx="6"/><rect class="box" x="14" y="86" width="46" height="34" rx="6"/>
+      <rect class="box" x="6" y="140" width="46" height="34" rx="6"/><rect class="box" x="48" y="186" width="46" height="34" rx="6"/>
+      <rect class="box" x="70" y="52" width="46" height="34" rx="6"/><rect class="box" x="66" y="120" width="46" height="34" rx="6"/>
+      <text x="60" y="16" class="s" text-anchor="middle">흩어짐</text>
+      <path class="ar" d="M140 120 L190 120"/>
+      <rect class="gd" x="205" y="40" width="100" height="70" rx="10"/>
+      <text x="255" y="80" class="s gold" text-anchor="middle">비슷한 것끼리</text>
+      <rect class="gd" x="205" y="130" width="100" height="70" rx="10"/>
+      <text x="255" y="170" class="s gold" text-anchor="middle">모으기</text>
+      <path class="ar" d="M320 120 L370 120"/>
+      <rect class="tl" x="382" y="60" width="72" height="120" rx="12"/>
+      <text x="418" y="112" class="l teal" text-anchor="middle">🏷️</text>
+      <text x="418" y="140" class="s" text-anchor="middle">이름</text>
     </svg>
-  </section>
+  </div>
+</section>
 
-  <!-- 6 LLM -->
-  <section class="slide">
-    <p class="eyebrow">Part 6 · LLM</p>
-    <h2>LLM은 <span style="color:var(--gold)">낱말 맞히기 챔피언</span>이에요</h2>
-    <div class="figrow">
-      <div>
-        <p><b>L</b>arge <b>L</b>anguage <b>M</b>odel — 아주 큰 언어 모델이라는 뜻이에요.</p>
-        <p class="lead">세상의 글을 엄청나게 많이 읽으면서 <b>“다음에 올 낱말 맞히기”</b> 게임을 수십억 번 한 친구라고 생각하면 돼요.</p>
-        <span class="chip coral" style="margin-top:1.5vh">정답을 아는 게 아니라, 가장 그럴듯한 말을 고르는 것</span>
-      </div>
-      <svg class="fig" viewBox="0 0 470 300" role="img" aria-label="다음 낱말을 확률로 고르는 방식">
-        <rect class="box" x="10" y="20" width="450" height="56"/>
-        <text x="235" y="55" class="big" text-anchor="middle">“나는 학교에 ___”</text>
-        <text x="10" y="105" class="sub">다음에 올 낱말 후보</text>
-        <rect class="box-gold" x="10" y="118" width="300" height="34"/>
-        <text x="24" y="140" class="lbl">간다</text><text x="290" y="140" class="lbl gold" text-anchor="end">70%</text>
-        <rect class="box" x="10" y="160" width="160" height="34"/>
-        <text x="24" y="182" class="lbl">갔다</text><text x="152" y="182" class="sub" text-anchor="end">20%</text>
-        <rect class="box" x="10" y="202" width="86" height="34"/>
-        <text x="24" y="224" class="lbl">왔다</text>
-        <text x="106" y="224" class="sub">9%</text>
-        <rect class="box" x="10" y="244" width="26" height="34"/>
-        <text x="46" y="266" class="sub">사과 … 0.1%</text>
-        <text x="330" y="142" class="sub coral">가장 확률 높은</text>
-        <text x="330" y="162" class="sub coral">낱말을 고름</text>
-      </svg>
-    </div>
-  </section>
+<!-- 13 -->
+<section class="slide">
+  <p class="eyebrow">KJ법 · 순서</p>
+  <h2>이 순서대로만 하면 돼요</h2>
+  <div class="four">
+    <div class="tile"><div class="ico">✍️</div><div class="t">쓰기</div><div class="d">한 장에 하나씩. 말하지 말고 조용히.</div></div>
+    <div class="tile"><div class="ico">🧲</div><div class="t">모으기</div><div class="d">비슷한 느낌끼리 가까이 붙이기</div></div>
+    <div class="tile hi"><div class="ico">🏷️</div><div class="t">이름 붙이기</div><div class="d">이 덩어리를 뭐라고 부를까?</div></div>
+    <div class="tile"><div class="ico">➡️</div><div class="t">줄 세우기</div><div class="d">발표할 순서로 화살표 잇기</div></div>
+  </div>
+</section>
 
-  <!-- 7 그래서 틀린다 -->
-  <section class="slide">
-    <p class="eyebrow">Part 6 · 그래서 중요한 것</p>
-    <h2>확률로 고르니까, <span style="color:var(--coral)">가끔 자신 있게 틀려요</span></h2>
-    <div class="cards c3">
-      <div class="card"><div class="n">특징 01</div><h4>말은 항상 매끄럽다</h4><p>문장을 잘 이어붙이는 게 특기라, 틀려도 그럴듯하게 들립니다.</p></div>
-      <div class="card"><div class="n">특징 02</div><h4>없는 걸 지어내기도 한다</h4><p>존재하지 않는 책 제목이나 실험 결과를 만들어내기도 해요.</p></div>
-      <div class="card"><div class="n">특징 03</div><h4>자신감 ≠ 정확도</h4><p>확신에 찬 말투와 사실 여부는 아무 상관이 없습니다.</p></div>
+<!-- 14 -->
+<section class="slide">
+  <p class="eyebrow">방법 ② 크레이지 8s</p>
+  <div class="cols">
+    <div>
+      <h2>8칸, 8분,<br><span class="gold">8개</span></h2>
+      <p class="say">종이를 8칸으로 접고 <b>한 칸에 1분씩</b>.<br>글보다 그림으로 그려요.</p>
+      <span class="chip">뒤로 갈수록 이상한 게 나오는데, 그게 목적!</span>
     </div>
-    <p class="lead">그래서 오늘 우리가 지킬 습관은 딱 하나 — <b style="color:var(--gold)">답을 받으면 한 번 더 확인하기.</b></p>
-  </section>
-
-  <!-- 8 리캡 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 역할 나누기</p>
-    <h2>AI가 할 일과 <span style="color:var(--gold)">내가 할 일</span>은<br>따로 있습니다</h2>
-    <div class="quote">방금 봤듯이 AI는 “다음에 올 낱말을 확률로 고를 뿐”이에요.<br>그래서 <b>맡겨도 되는 일</b>과 <b>절대 넘기면 안 되는 일</b>을 나눠야 합니다.</div>
-    <div class="split" style="margin-top:2.5vh">
-      <div class="panel" style="border-left:5px solid var(--teal)">
-        <h3 style="color:var(--teal)">🤖 AI에게 맡겨도 되는 일</h3>
-        <ul>
-          <li>많은 자료를 <b>빠르게 훑어</b> 후보를 모아주기</li>
-          <li>어려운 말을 <b>쉬운 말로 바꿔</b> 설명하기</li>
-          <li>아이디어를 <b>잔뜩 뽑아내기</b> (양 늘리기)</li>
-          <li>형식 맞추기·정리 같은 <b>반복 작업</b></li>
-          <li>초안 만들기 — 시작점 제공</li>
-        </ul>
-      </div>
-      <div class="panel" style="border-left:5px solid var(--gold);background:rgba(245,187,75,.09)">
-        <h3 style="color:var(--gold)">🙋 내가 반드시 해야 하는 일</h3>
-        <ul>
-          <li><b>무엇을 만들지 정하기</b> — 문제 선택은 내 몫</li>
-          <li><b>사실인지 확인하기</b> — 교과서·선생님께 대조</li>
-          <li><b>고르고 판단하기</b> — 어떤 답을 쓸지 결정</li>
-          <li><b>정직하게 밝히기</b> — 도움받은 부분 말하기</li>
-          <li><b>결과에 책임지기</b> — 내 이름으로 나가는 것</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 역할 분담 한 줄 정리 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 기준 한 줄</p>
-    <h2>이 문장 하나로 구분됩니다</h2>
-    <div class="quiz" style="margin-top:1vh">
-      <h3 style="color:var(--ink);font-size:clamp(18px,2.3vw,32px);line-height:1.5">
-        AI는 <span style="color:var(--teal)">재료를 모아주는 사람</span>,<br>
-        나는 <span style="color:var(--gold)">그 재료로 무엇을 만들지 정하는 사람</span>.
-      </h3>
-      <p class="answer">그래서 “AI가 그렇게 말했어요”는 이유가 될 수 없어요. <b>“내가 확인해봤더니 맞더라”</b>가 되어야 합니다.</p>
-    </div>
-    <div class="cards c3" style="margin-top:2.5vh">
-      <div class="card"><div class="n">나이 기준 · 13세 미만</div><h4>보호자 동의 + 선생님 지도</h4><p>초등학생은 반드시 어른과 함께 사용합니다.</p></div>
-      <div class="card"><div class="n">나이 기준 · 13~18세</div><h4>보호자·학교 승인</h4><p>쓰기 전에 안전·윤리 교육을 먼저 받습니다.</p></div>
-      <div class="card"><div class="n">공통</div><h4>서비스 연령 제한 확인</h4><p>학교·학급 자체 규정이 있으면 그것이 우선입니다.</p></div>
-    </div>
-    <p class="lead" style="font-size:clamp(12px,1.15vw,15px)">출처: 경기도교육청 「생성형 인공지능 활용교육」 학생용 가이드라인</p>
-  </section>
-
-  <!-- 10 AI 윤리 5원칙 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 내가 지킬 다섯 가지</p>
-    <h2><span style="color:var(--gold)">내가 해야 할 일</span> 다섯 가지</h2>
-    <div class="cards c3">
-      <div class="card"><div class="n">ETHICS 01</div><h4>정보 출처를 정직하게 밝히기</h4><p>“AI가 알려줬고, 교과서 □□쪽에서 확인했어요”까지가 한 세트.</p></div>
-      <div class="card"><div class="n">ETHICS 02</div><h4>남의 개인정보를 넣지 않기</h4><p>친구 사진·키·몸무게·SNS 사진은 절대 업로드 금지.</p></div>
-      <div class="card"><div class="n">ETHICS 03</div><h4>바르고 예의 있는 말 쓰기</h4><p>“야, 이거 어떻게 해?” ✗ → “○학년에 맞게 알려주세요” ○</p></div>
-      <div class="card"><div class="n">ETHICS 04</div><h4>도움받은 부분은 솔직히 말하기</h4><p>어디까지가 내 생각이고 어디부터 AI인지 구분해서 말하기.</p></div>
-      <div class="card"><div class="n">ETHICS 05</div><h4>저작권·상표권 지키기</h4><p>AI가 만든 그림·글도 남의 캐릭터를 베끼면 문제가 됩니다.</p></div>
-      <div class="card" style="background:rgba(245,187,75,.1);border-color:rgba(245,187,75,.4)"><div class="n" style="color:var(--gold)">오늘 활동에서</div><h4>피칭할 때 꼭 말하기</h4><p>“이 부분은 AI 도움을 받았고, ○○에서 확인했습니다”</p></div>
-    </div>
-  </section>
-
-  <!-- 11 출처 밝히기 실전 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 내 몫 ①</p>
-    <h2>출처 밝히기 — 이렇게 다릅니다</h2>
-    <div class="split">
-      <div class="panel" style="border-left:5px solid var(--coral)">
-        <h3 style="color:var(--coral)">✗ 이렇게 하면 안 돼요</h3>
-        <ul>
-          <li>“공룡은 1억 년 전에 살았어요.”<br><span class="dim">— AI가 알려준 내용을 그대로 옮겨 적기</span></li>
-          <li>“세종대왕은 훈민정음을 만들었어요.”<br><span class="dim">— 출처 없이 작성</span></li>
-        </ul>
-      </div>
-      <div class="panel" style="border-left:5px solid var(--teal)">
-        <h3 style="color:var(--teal)">○ 이렇게 하세요</h3>
-        <ul>
-          <li>“AI 검색 결과에 따르면 공룡은 1억 년 전에 살았다고 해요. 이 내용은 ○○박물관 홈페이지에서 확인했어요.”</li>
-          <li>“AI가 알려준 내용을 교과서 □□쪽에서 확인했어요.”</li>
-        </ul>
-        <span class="chip" style="margin-top:1.4vh">AI에게 “이 내용의 출처가 어디야?”라고 되물어보기</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12 개인정보 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 내 몫 ②</p>
-    <h2>개인정보 — 넣으면 안 되는 것들</h2>
-    <div class="split">
-      <div class="panel" style="border-left:5px solid var(--coral)">
-        <h3 style="color:var(--coral)">✗ 하면 안 되는 것</h3>
-        <ul>
-          <li>친구 사진을 AI에게 보여주며 분석해달라고 하기</li>
-          <li>다른 반 친구의 키·몸무게를 알려주기</li>
-          <li>급식실에서 찍은 친구들 사진 올리기</li>
-          <li>친구의 SNS 사진 업로드하기</li>
-        </ul>
-      </div>
-      <div class="panel" style="border-left:5px solid var(--teal)">
-        <h3 style="color:var(--teal)">○ 이렇게 바꾸면 괜찮아요</h3>
-        <ul>
-          <li>“우리 반 학생들의 평균 키를 분석해주세요”<br><span class="dim">— 이름 없이 숫자 데이터만</span></li>
-          <li>“초등학생의 일반적인 특징을 알려주세요”<br><span class="dim">— 특정 개인이 아닌 일반 정보로</span></li>
-        </ul>
-        <span class="chip" style="margin-top:1.4vh">내 이름·학교·주소도 알려주지 않기</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13 안전한 활용 4가지 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 내 몫 ③</p>
-    <h2>AI 답을 받았을 때, 내가 할 네 가지</h2>
-    <div class="steps">
-      <div class="step"><div class="k">01</div><h4>정확한 정보로 질문하기</h4><p>애매하게 묻지 말고, 학년·상황을 넣어 구체적으로.</p></div>
-      <div class="step"><div class="k">02</div><h4>적당히 사용하기</h4><p>AI 없이 먼저 생각해보고, 막힐 때 도움을 청하기.</p></div>
-      <div class="step"><div class="k">03</div><h4>답이 맞는지 확인하기</h4><p>교과서·선생님 설명이 AI보다 정확합니다.</p></div>
-      <div class="step"><div class="k">04</div><h4>AI도 편견이 있음을 기억</h4><p>배운 데이터가 치우쳐 있으면 답도 치우칩니다.</p></div>
-    </div>
-    <p class="lead">지난 시간의 <b style="color:var(--gold)">흰개미집 사례</b>와 같은 이야기입니다 — 수십 년간 전문가들도 틀린 설명을 믿었어요.</p>
-  </section>
-
-  <!-- 14 좋은 질문 만들기 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 잘 부탁하는 법</p>
-    <h2>부탁을 잘하는 것도 <span style="color:var(--gold)">내 일</span>이에요</h2>
-    <div class="split">
-      <div class="panel">
-        <h3>질문 만들기 3원칙</h3>
-        <ul>
-          <li><b>구체적으로</b> 묻기</li>
-          <li><b>단계별로</b> 나누어 묻기</li>
-          <li>이해 안 되는 부분은 <b>추가 설명</b> 요청하기</li>
-        </ul>
-      </div>
-      <div class="panel">
-        <h3>같은 숙제, 다른 질문</h3>
-        <ul>
-          <li><span style="color:var(--coral)">✗</span> “세종대왕이 뭘 했는지 알려주세요”</li>
-          <li><span style="color:var(--teal)">○</span> “세종대왕의 업적 중 가장 중요한 3가지를 알려주세요. <b>초등학생이 이해하기 쉽게</b> 설명해주세요.”</li>
-          <li><span style="color:var(--teal)">○</span> “초등학생한테 광합성을 설명해주는데, 마치 <b>식물이 레스토랑에서 밥 먹는 것처럼</b> 재미있게 설명해주세요.”</li>
-        </ul>
-      </div>
-    </div>
-    <p class="lead">막혔을 때 쓰는 한마디 — “방금 설명한 내용을 초등학생이 이해하기 쉽게 다시 설명해주세요. 예시도 들어주세요.”</p>
-  </section>
-
-  <!-- 15 학습 활용 시나리오 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 학습에 쓰기</p>
-    <h2>이런 식으로 씁니다</h2>
-    <div class="cards c3">
-      <div class="card"><div class="tag">숙제할 때</div><h4>답이 아니라 이해를 얻기</h4><p>AI 답변은 <b>참고자료로만</b>. 답을 읽고 “이 중에서 내가 가장 궁금한 건 뭐지?”로 이어가기.</p></div>
-      <div class="card"><div class="tag">주말 학습</div><h4>어려운 걸 재미있게 바꾸기</h4><p>“고조선 건국 이야기를 모험 이야기처럼 들려주세요” · “영어 자기소개 예문 3개, 한국어 뜻도 같이”</p></div>
-      <div class="card"><div class="tag">창의 활동</div><h4>내 아이디어의 출발점으로</h4><p>AI가 만든 동화를 읽고 <b>내가 그림을 그리고 내 말로 바꾸기</b>. 만드는 건 결국 내가 합니다.</p></div>
-    </div>
-    <p class="lead">공통 원칙 — <b style="color:var(--gold)">AI 답변을 스스로의 생각으로 발전시키는 것</b>이 목적입니다.</p>
-  </section>
-
-  <!-- 16 체크리스트 + 약속 -->
-  <section class="slide">
-    <p class="eyebrow">Part 7 · 정리</p>
-    <h2>역할이 잘 나뉘었는지 확인하기</h2>
-    <div class="split">
-      <div class="panel">
-        <h3>활동 전 · 중 · 후</h3>
-        <ul>
-          <li><b>전</b> — 무엇을 배울지 정하고, 물어볼 질문을 먼저 만들었나요?</li>
-          <li><b>중</b> — 답변을 읽으며 이해 안 되는 부분을 표시했나요?</li>
-          <li><b>후</b> — 배운 내용을 <b>나만의 말로</b> 다시 정리했나요?</li>
-        </ul>
-      </div>
-      <div class="panel" style="background:rgba(245,187,75,.09);border-color:rgba(245,187,75,.35)">
-        <h3 style="color:var(--gold)">내가 끝까지 챙길 것</h3>
-        <ul>
-          <li>모르는 게 있으면 바로 선생님께 물어보기</li>
-          <li>AI 답변은 항상 한 번 더 확인하기</li>
-          <li>개인정보는 비밀 — 내 것도, 친구 것도</li>
-          <li>AI만 믿지 않기 — 교과서·선생님 설명이 더 정확해요</li>
-          <li>AI 도움을 받은 부분은 솔직히 말하기</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 17 발상기법 개요 -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 웹으로 발표자료 만들기</p>
-    <h2>오늘 정리한 아이디어를<br><span style="color:var(--gold)">웹페이지</span>로 만들 거예요</h2>
-    <svg class="fig" viewBox="0 0 1000 210" role="img" aria-label="에이전트에게 부탁해 웹 발표자료를 만들고 배포하는 흐름">
-      <rect class="box-gold" x="10" y="60" width="170" height="80"/>
-      <text x="95" y="95" class="lbl gold" text-anchor="middle">우리가 부탁</text>
-      <text x="95" y="118" class="sub" text-anchor="middle">“이런 발표자료 만들어줘”</text>
-      <path class="arrow" d="M188 100 L246 100"/>
-      <rect class="box" x="254" y="60" width="170" height="80"/>
-      <text x="339" y="95" class="lbl" text-anchor="middle">AI 에이전트</text>
-      <text x="339" y="118" class="sub" text-anchor="middle">OpenCode가 코드 작성</text>
-      <path class="arrow" d="M432 100 L490 100"/>
-      <rect class="box" x="498" y="60" width="170" height="80"/>
-      <text x="583" y="88" class="lbl" text-anchor="middle">웹페이지 파일</text>
-      <text x="583" y="110" class="sub" text-anchor="middle">HTML · CSS · JS</text>
-      <text x="583" y="128" class="sub" text-anchor="middle">+ 이미지 · 영상</text>
-      <path class="arrow" d="M676 100 L734 100"/>
-      <rect class="box-teal" x="742" y="60" width="170" height="80"/>
-      <text x="827" y="95" class="lbl teal" text-anchor="middle">배포 → 링크</text>
-      <text x="827" y="118" class="sub" text-anchor="middle">친구들이 폰으로 봄</text>
-      <text x="10" y="185" class="sub">설치는 이미 끝나 있어요. 우리는 <tspan class="gold" style="font-weight:700">무엇을 부탁할지</tspan>만 잘 정하면 됩니다.</text>
+    <svg class="fig" viewBox="0 0 420 230" role="img" aria-label="종이를 8칸으로 접어 하나씩 그리기">
+      <rect class="gd" x="10" y="10" width="95" height="100" rx="8"/><text x="57" y="66" class="l gold" text-anchor="middle">1분</text>
+      <rect class="gd" x="112" y="10" width="95" height="100" rx="8"/><text x="159" y="66" class="l gold" text-anchor="middle">1분</text>
+      <rect class="box" x="214" y="10" width="95" height="100" rx="8"/><text x="261" y="66" class="s" text-anchor="middle">…</text>
+      <rect class="box" x="316" y="10" width="95" height="100" rx="8"/><text x="363" y="66" class="s" text-anchor="middle">…</text>
+      <rect class="box" x="10" y="118" width="95" height="100" rx="8"/><text x="57" y="174" class="s" text-anchor="middle">…</text>
+      <rect class="box" x="112" y="118" width="95" height="100" rx="8"/><text x="159" y="174" class="s" text-anchor="middle">…</text>
+      <rect class="box" x="214" y="118" width="95" height="100" rx="8"/><text x="261" y="174" class="s" text-anchor="middle">…</text>
+      <rect class="tl" x="316" y="118" width="95" height="100" rx="8"/><text x="363" y="174" class="l teal" text-anchor="middle">8번째</text>
     </svg>
-  </section>
+  </div>
+</section>
 
-  <!-- HTML -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 웹의 3형제 ①</p>
-    <h2>HTML — 뼈대를 세우는 일</h2>
-    <div class="figrow">
-      <div>
-        <p>웹페이지에 <b>무엇이 들어가는지</b>를 적는 언어예요. 제목, 문단, 사진, 영상, 버튼 같은 것들의 <b>순서와 종류</b>를 정합니다.</p>
-        <ul style="margin-top:1.6vh">
-          <li>제목은 제목이라고, 사진은 사진이라고 알려주기</li>
-          <li>꾸미기(색·크기)는 여기서 하지 않아요</li>
-        </ul>
-        <span class="chip" style="margin-top:1.5vh">집으로 치면 — 기둥과 방의 뼈대</span>
-      </div>
-      <svg class="fig" viewBox="0 0 460 280" role="img" aria-label="HTML은 구조만 있는 뼈대">
-        <rect class="box" x="20" y="20" width="420" height="240"/>
-        <rect x="46" y="48" width="200" height="26" rx="5" fill="rgba(239,243,249,.22)"/>
-        <text x="262" y="68" class="sub">← 제목</text>
-        <rect x="46" y="90" width="368" height="12" rx="4" fill="rgba(239,243,249,.12)"/>
-        <rect x="46" y="110" width="330" height="12" rx="4" fill="rgba(239,243,249,.12)"/>
-        <text x="46" y="146" class="sub">← 글(문단)</text>
-        <rect x="46" y="158" width="150" height="86" rx="6" fill="rgba(239,243,249,.1)" stroke="rgba(239,243,249,.25)" stroke-dasharray="5 4"/>
-        <text x="121" y="206" class="sub" text-anchor="middle">사진 자리</text>
-        <rect x="214" y="158" width="200" height="86" rx="6" fill="rgba(239,243,249,.1)" stroke="rgba(239,243,249,.25)" stroke-dasharray="5 4"/>
-        <text x="314" y="206" class="sub" text-anchor="middle">영상 자리</text>
-      </svg>
+<!-- 15 -->
+<section class="slide">
+  <p class="eyebrow">방법 ③ 브레인라이팅</p>
+  <div class="cols">
+    <div>
+      <h2>말 대신<br><span class="gold">종이 릴레이</span></h2>
+      <p class="say">각자 3개 적고 <b>옆 사람에게 넘겨요</b>.<br>받은 아이디어에 살을 붙여 또 3개.</p>
+      <span class="chip">목소리 큰 친구만 말하는 걸 막아줘요</span>
     </div>
-  </section>
-
-  <!-- CSS -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 웹의 3형제 ②</p>
-    <h2>CSS — 옷을 입히는 일</h2>
-    <div class="figrow">
-      <div>
-        <p>뼈대에 <b>색·크기·위치·글꼴</b>을 입히는 언어예요. 똑같은 HTML도 CSS를 바꾸면 완전히 달라 보입니다.</p>
-        <ul style="margin-top:1.6vh">
-          <li>배경은 남색, 강조는 금색처럼 색을 정하고</li>
-          <li>사진을 왼쪽에, 글을 오른쪽에 배치하고</li>
-          <li>글자를 크게·굵게 만들기</li>
-        </ul>
-        <span class="chip" style="margin-top:1.5vh">집으로 치면 — 페인트칠과 가구 배치</span>
-      </div>
-      <svg class="fig" viewBox="0 0 460 280" role="img" aria-label="CSS로 색과 배치를 입힌 모습">
-        <rect class="box" x="20" y="20" width="420" height="240"/>
-        <rect x="46" y="48" width="200" height="26" rx="5" fill="#f5bb4b"/>
-        <text x="262" y="68" class="sub gold">← 금색 제목</text>
-        <rect x="46" y="90" width="368" height="12" rx="4" fill="rgba(239,243,249,.5)"/>
-        <rect x="46" y="110" width="330" height="12" rx="4" fill="rgba(239,243,249,.5)"/>
-        <rect x="46" y="158" width="150" height="86" rx="10" fill="rgba(84,214,200,.28)" stroke="#54d6c8"/>
-        <text x="121" y="206" class="sub teal" text-anchor="middle">사진</text>
-        <rect x="214" y="158" width="200" height="86" rx="10" fill="rgba(245,139,122,.25)" stroke="#f58b7a"/>
-        <text x="314" y="206" class="sub coral" text-anchor="middle">영상</text>
-      </svg>
-    </div>
-  </section>
-
-  <!-- JS -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 웹의 3형제 ③</p>
-    <h2>JavaScript — 움직이게 하는 일</h2>
-    <div class="figrow">
-      <div>
-        <p>버튼을 누르면 반응하고, 화면이 바뀌고, 다음 장으로 넘어가게 만드는 언어예요.</p>
-        <ul style="margin-top:1.6vh">
-          <li>“다음” 버튼을 누르면 다음 슬라이드로</li>
-          <li>영상을 눌렀을 때 재생되게</li>
-          <li>퀴즈 정답을 눌렀을 때 표시되게</li>
-        </ul>
-        <span class="chip" style="margin-top:1.5vh">집으로 치면 — 전등 스위치와 자동문</span>
-      </div>
-      <svg class="fig" viewBox="0 0 460 280" role="img" aria-label="버튼을 누르면 화면이 바뀌는 동작">
-        <rect class="box" x="20" y="30" width="190" height="120"/>
-        <text x="115" y="80" class="lbl" text-anchor="middle">슬라이드 1</text>
-        <rect x="60" y="100" width="110" height="30" rx="15" fill="#f5bb4b"/>
-        <text x="115" y="120" style="font-size:13px;font-weight:700;fill:#141f36" text-anchor="middle">다음 ▶</text>
-        <path class="arrow" d="M218 90 L268 90"/>
-        <text x="243" y="76" class="sub gold" text-anchor="middle">클릭!</text>
-        <rect class="box-teal" x="276" y="30" width="164" height="120"/>
-        <text x="358" y="95" class="lbl teal" text-anchor="middle">슬라이드 2</text>
-        <text x="20" y="200" class="sub">JS가 없으면 — 버튼을 눌러도 아무 일도 일어나지 않아요.</text>
-        <text x="20" y="228" class="sub">HTML·CSS만으로는 <tspan class="gold" style="font-weight:700">멈춰 있는 그림</tspan>이고,</text>
-        <text x="20" y="252" class="sub">JS가 붙어야 <tspan class="teal" style="font-weight:700">눌리고 넘어가는 자료</tspan>가 됩니다.</text>
-      </svg>
-    </div>
-  </section>
-
-  <!-- 3형제 정리 -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 정리</p>
-    <h2>세 개가 모여 웹페이지 하나</h2>
-    <div class="steps" style="grid-template-columns:repeat(3,1fr)">
-      <div class="step"><div class="k">HTML</div><h4>뼈대 · 무엇이 있는지</h4><p>제목, 글, 사진, 영상, 버튼의 종류와 순서</p></div>
-      <div class="step"><div class="k">CSS</div><h4>옷 · 어떻게 보이는지</h4><p>색, 크기, 글꼴, 배치</p></div>
-      <div class="step"><div class="k">JS</div><h4>움직임 · 어떻게 반응하는지</h4><p>클릭, 넘김, 재생</p></div>
-    </div>
-    <p class="lead">이 세 가지를 <b style="color:var(--gold)">직접 외울 필요는 없어요.</b> 다만 무엇을 부탁해야 하는지는 알아야 합니다 — “색을 바꿔줘”는 CSS, “버튼을 누르면 넘어가게 해줘”는 JS 이야기예요.</p>
-  </section>
-
-  <!-- 배포 -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 배포</p>
-    <h2>배포 = 내 방에 있던 작품을<br><span style="color:var(--gold)">전시장에 거는 일</span></h2>
-    <svg class="fig" viewBox="0 0 1000 220" role="img" aria-label="내 컴퓨터의 파일을 인터넷에 올려 링크로 공유하는 과정">
-      <rect class="box" x="20" y="50" width="210" height="100"/>
-      <text x="125" y="88" class="lbl" text-anchor="middle">내 컴퓨터</text>
-      <text x="125" y="112" class="sub" text-anchor="middle">파일이 여기에만 있음</text>
-      <text x="125" y="132" class="sub coral" text-anchor="middle">나만 볼 수 있어요</text>
-      <path class="arrow" d="M238 100 L318 100"/>
-      <text x="278" y="86" class="sub gold" text-anchor="middle">배포</text>
-      <rect class="box-gold" x="326" y="50" width="230" height="100"/>
-      <text x="441" y="88" class="lbl gold" text-anchor="middle">인터넷 서버</text>
-      <text x="441" y="112" class="sub" text-anchor="middle">GitHub Pages 같은 곳</text>
-      <text x="441" y="132" class="sub" text-anchor="middle">무료로 올릴 수 있어요</text>
-      <path class="arrow" d="M564 100 L644 100"/>
-      <rect class="box-teal" x="652" y="50" width="230" height="100"/>
-      <text x="767" y="82" class="lbl teal" text-anchor="middle">주소(링크) 생성</text>
-      <text x="767" y="106" class="sub" text-anchor="middle">https://…</text>
-      <text x="767" y="130" class="sub" text-anchor="middle">누구나 폰으로 열람</text>
-      <text x="20" y="195" class="sub">지금 보고 있는 이 발표자료도 <tspan class="gold" style="font-weight:700">같은 방식으로 배포된 웹페이지</tspan>예요.</text>
+    <svg class="fig" viewBox="0 0 440 200" role="img" aria-label="종이를 옆으로 넘기며 아이디어를 더하기">
+      <rect class="box" x="10" y="60" width="110" height="90" rx="12"/>
+      <text x="65" y="100" class="l" text-anchor="middle">나</text><text x="65" y="126" class="s" text-anchor="middle">아이디어 3개</text>
+      <path class="ar" d="M128 105 L172 105"/>
+      <rect class="gd" x="182" y="60" width="110" height="90" rx="12"/>
+      <text x="237" y="100" class="l gold" text-anchor="middle">친구</text><text x="237" y="126" class="s" text-anchor="middle">+ 3개 더</text>
+      <path class="ar" d="M300 105 L344 105"/>
+      <rect class="tl" x="354" y="60" width="76" height="90" rx="12"/>
+      <text x="392" y="100" class="l teal" text-anchor="middle">…</text><text x="392" y="126" class="s" text-anchor="middle">계속</text>
     </svg>
-  </section>
+  </div>
+</section>
 
-  <!-- 에이전트에게 부탁하는 법 -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 에이전트 사용법</p>
-    <h2>이렇게 부탁하면 됩니다</h2>
-    <div class="split">
-      <div class="panel" style="border-left:5px solid var(--coral)">
-        <h3 style="color:var(--coral)">✗ 막연한 부탁</h3>
-        <ul>
-          <li>“발표자료 만들어줘”</li>
-          <li>“예쁘게 해줘”</li>
-        </ul>
-        <p class="dim" style="margin-top:1.4vh;font-size:clamp(12px,1.24vw,16px)">무엇을 만들지 AI가 알 수 없어서, 엉뚱한 게 나옵니다.</p>
-      </div>
-      <div class="panel" style="border-left:5px solid var(--teal)">
-        <h3 style="color:var(--teal)">○ 구체적인 부탁</h3>
-        <ul>
-          <li>“슬라이드 5장짜리 웹 발표자료를 만들어줘. 1장은 제목, 2장은 우리가 고른 문제, 3장은 관찰한 생물 사진, 4장은 뽑아낸 원리, 5장은 우리 아이디어야.”</li>
-          <li>“3장에 <b>images 폴더의 사진</b>을 넣어줘.”</li>
-          <li>“<b>화살표 키로 넘어가게</b> 해줘.” <span class="dim">(= JS)</span></li>
-          <li>“<b>배경은 남색, 글씨는 흰색</b>으로.” <span class="dim">(= CSS)</span></li>
-        </ul>
-      </div>
+<!-- 16 -->
+<section class="slide">
+  <p class="eyebrow">방법 ④⑤ 생각 비틀기</p>
+  <h2>막혔을 때 쓰는 두 가지</h2>
+  <div class="two">
+    <div class="card gd">
+      <h3>🔎 요술 안경 (SCAMPER)</h3>
+      <p>내 아이디어에 질문 7개를 하나씩 대봐요.<br><b>바꾸면? 합치면? 빌려오면? 키우면? 줄이면? 없애면? 거꾸로 하면?</b></p>
     </div>
-    <p class="lead">막히면 그대로 물어보세요 — “이 부분이 화면에서 안 보여. 왜 그런지 알려주고 고쳐줘.”</p>
-  </section>
-
-  <!-- 이미지·영상 넣기 -->
-  <section class="slide">
-    <p class="eyebrow">Part 8 · 이미지와 영상 넣기</p>
-    <h2>사진과 영상은 이렇게 들어갑니다</h2>
-    <div class="figrow">
-      <svg class="fig" viewBox="0 0 460 260" role="img" aria-label="파일 폴더 구조와 웹페이지의 관계">
-        <rect class="box" x="20" y="20" width="200" height="220"/>
-        <text x="120" y="48" class="lbl" text-anchor="middle">내 폴더</text>
-        <text x="42" y="86" class="sub">📄 index.html</text>
-        <text x="42" y="114" class="sub">📁 images/</text>
-        <text x="62" y="140" class="sub">🖼 물총새.jpg</text>
-        <text x="42" y="168" class="sub">📁 videos/</text>
-        <text x="62" y="194" class="sub">🎬 우리영상.mp4</text>
-        <path class="arrow" d="M228 130 L288 130"/>
-        <rect class="box-teal" x="296" y="60" width="150" height="140"/>
-        <text x="371" y="92" class="lbl teal" text-anchor="middle">웹페이지</text>
-        <rect x="316" y="106" width="110" height="40" rx="6" fill="rgba(84,214,200,.25)"/>
-        <text x="371" y="131" class="sub" text-anchor="middle">사진 표시됨</text>
-        <rect x="316" y="152" width="110" height="40" rx="6" fill="rgba(245,187,75,.25)"/>
-        <text x="371" y="177" class="sub" text-anchor="middle">영상 재생됨</text>
-      </svg>
-      <div>
-        <h3>기억할 것 두 가지</h3>
-        <ul>
-          <li><b>파일을 같은 폴더 안에</b> 넣어야 웹페이지가 찾을 수 있어요. 바탕화면에 둔 사진은 못 찾습니다.</li>
-          <li>파일 이름은 <b>영어와 숫자로</b> 짓는 게 안전해요.</li>
-        </ul>
-        <span class="chip coral" style="margin-top:1.8vh">저작권 주의 — 인터넷 사진을 함부로 쓰지 않기</span>
-        <p class="lead" style="font-size:clamp(13px,1.4vw,18px)">직접 찍은 사진, 직접 만든 그림, 또는 자유롭게 쓸 수 있다고 표시된 자료만 사용하세요.</p>
-      </div>
+    <div class="card cr">
+      <h3>🙃 거꾸로 생각하기</h3>
+      <p>“어떻게 하면 이걸 <b>더 최악으로</b> 만들까?”<br>실컷 망친 다음, 하나씩 뒤집으면 답이 돼요.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 19 피칭 기법 개요 -->
-  <section class="slide">
-    <p class="eyebrow">Part 9 · 실습</p>
-    <h2>지금부터 15분</h2>
-    <div class="timeline">
-      <div class="tl"><div class="t">4분</div><div class="l">크레이지 8s<br><span class="dim">각자 8칸 채우기</span></div></div>
-      <div class="tl"><div class="t">5분</div><div class="l">FigJam에 붙이고<br>비슷한 것끼리 모으기</div></div>
-      <div class="tl"><div class="t">3분</div><div class="l">그룹 이름 붙이고<br>화살표로 잇기</div></div>
-      <div class="tl"><div class="t">3분</div><div class="l">팀별 피칭<br><span class="dim">1팀 1분</span></div></div>
+<!-- 17 -->
+<section class="slide">
+  <p class="eyebrow">정리</p>
+  <h2>이럴 땐 이걸 쓰세요</h2>
+  <div class="four">
+    <div class="tile"><div class="ico">😶</div><div class="t">하나도 안 떠올라</div><div class="d">크레이지 8s</div></div>
+    <div class="tile"><div class="ico">🗣️</div><div class="t">한 명만 말해</div><div class="d">브레인라이팅</div></div>
+    <div class="tile"><div class="ico">🌀</div><div class="t">다 비슷비슷해</div><div class="d">요술 안경 · 거꾸로</div></div>
+    <div class="tile hi"><div class="ico">🧺</div><div class="t">너무 많아 정리가 안 돼</div><div class="d">KJ법</div></div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide">
+  <p class="eyebrow">FigJam</p>
+  <div class="cols">
+    <div>
+      <h2>FigJam =<br><span class="gold">아주 큰 온라인 종이</span></h2>
+      <p class="say">여러 명이 <b>동시에</b> 붙일 수 있어요.<br>설치 없이 링크만 열면 끝.</p>
     </div>
-    <p class="lead">막히면 <b style="color:var(--gold)">역브레인스토밍</b>으로 전환하세요 — “어떻게 하면 이걸 더 최악으로 만들까?”</p>
-  </section>
+    <svg class="fig" viewBox="0 0 440 230" role="img" aria-label="여러 명이 하나의 보드에 붙이는 모습">
+      <rect class="box" x="10" y="20" width="420" height="190" rx="14"/>
+      <rect class="gd" x="40" y="55" width="70" height="52" rx="8"/>
+      <rect class="gd" x="120" y="55" width="70" height="52" rx="8"/>
+      <rect class="tl" x="40" y="120" width="70" height="52" rx="8"/>
+      <rect class="tl" x="120" y="120" width="70" height="52" rx="8"/>
+      <text x="250" y="80" class="l">👦 👧 🧑</text>
+      <text x="250" y="112" class="s">모두 같은 화면에</text>
+      <text x="250" y="140" class="s">동시에 붙여요</text>
+    </svg>
+  </div>
+</section>
 
-  <!-- 24 마무리 -->
-  <section class="slide">
-    <div class="hero"><img src="assets/beetle.jpg" alt=""></div>
-    <p class="eyebrow">마무리</p>
-    <h2>오늘 한 일</h2>
-    <ul>
-      <li>지난 강의의 렌즈(관찰 → 추상화 → 적용)를 퀴즈로 다시 확인했고</li>
-      <li>발상 기법 7가지를 배운 뒤, <b>크레이지 8s + KJ법</b> 조합으로 아이디어를 모았고</li>
-      <li>FigJam에서 묶고 <b>이름을 붙여</b>(= 추상화를 직접 해봤고) 스토리라인으로 배치했고</li>
-      <li>문제 → 해결 → 근거 틀로 피칭했습니다</li>
-    </ul>
-    <p class="lead">다음 시간엔 오늘 피칭한 아이디어 중 하나를 골라 실제로 만들어봅니다.</p>
-  </section>
+<!-- 19 -->
+<section class="slide">
+  <p class="eyebrow">FigJam · 이것만 하면 돼요</p>
+  <h2>딱 네 가지 동작</h2>
+  <div class="four">
+    <div class="tile"><div class="ico">📝</div><div class="t"><span class="kbd">S</span> 붙이기</div><div class="d">S 누르고 화면 클릭 = 쪽지 생성</div></div>
+    <div class="tile"><div class="ico">🎨</div><div class="t">색 바꾸기</div><div class="d">문제=노랑, 생물=초록, 원리=파랑</div></div>
+    <div class="tile"><div class="ico">🤏</div><div class="t">끌어 모으기</div><div class="d">비슷한 것끼리 가까이 드래그</div></div>
+    <div class="tile hi"><div class="ico">🏷️</div><div class="t"><span class="kbd">T</span> 이름 달기</div><div class="d">덩어리 위에 한 문장으로</div></div>
+  </div>
+</section>
+
+<!-- 20 -->
+<section class="slide">
+  <p class="eyebrow">발표하기</p>
+  <h2>피칭 = <span class="gold">내 생각을 전하는 것</span></h2>
+  <p class="say">잘 만든 것보다 <b>왜 그게 답인지</b>가 궁금해요.<br>그래서 말하는 순서가 중요합니다.</p>
+</section>
+
+<!-- 21 -->
+<section class="slide">
+  <p class="eyebrow">피칭 · 이대로만 말해요</p>
+  <h2>이 한 문장으로 시작</h2>
+  <div class="card gd" style="margin-top:1vh">
+    <p class="big">
+      “저희는 <span class="gold">○○ 문제</span>를 풀려고<br>
+      <span class="gold">△△</span>를 관찰했고, 거기서 <span class="gold">□□ 원리</span>를 뽑아<br>
+      <span class="gold">◇◇</span>에 적용했습니다.”
+    </p>
+  </div>
+  <p class="say" style="margin-top:2.4vh">그다음 30초 — 왜 그 원리가 이 문제를 푸는지.</p>
+</section>
+
+<!-- 22 -->
+<section class="slide">
+  <p class="eyebrow">피칭 · 30초 연습</p>
+  <h2>짧게 말하는 두 가지 틀</h2>
+  <div class="two">
+    <div class="card tl">
+      <h3>🛗 엘리베이터에서 말하기</h3>
+      <ul>
+        <li>누가 · 무엇 때문에 불편한지</li>
+        <li>우리가 무엇을 만들었는지</li>
+        <li>기존과 다른 점 <b>딱 하나</b></li>
+      </ul>
+    </div>
+    <div class="card gd">
+      <h3>📐 문제 → 해결 → 근거</h3>
+      <ul>
+        <li>무엇이 불편한가 (한 문장)</li>
+        <li>무엇을 만들었나 (한 문장)</li>
+        <li>자연에서 본 것 + 뽑은 원리</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 23 -->
+<section class="slide">
+  <div class="full"><img src="assets/challenge.jpg" alt=""></div>
+  <p class="eyebrow">실습</p>
+  <h2>지금부터 <span class="gold">20분</span></h2>
+  <div class="four" style="margin-top:2vh">
+    <div class="tile"><div class="ico">✏️</div><div class="t">5분</div><div class="d">각자 조용히 쓰기</div></div>
+    <div class="tile"><div class="ico">🧲</div><div class="t">7분</div><div class="d">모으고 이름 붙이기</div></div>
+    <div class="tile"><div class="ico">➡️</div><div class="t">3분</div><div class="d">순서 정하기</div></div>
+    <div class="tile hi"><div class="ico">🎤</div><div class="t">5분</div><div class="d">발표 (팀당 1분)</div></div>
+  </div>
+</section>
+
+<!-- 24 -->
+<section class="slide">
+  <p class="eyebrow">AI 알기</p>
+  <h2>이제 <span class="gold">AI</span>가 뭔지 알아봐요</h2>
+  <p class="say">우리가 만든 아이디어를 <b>웹페이지로 만들 때</b><br>AI가 도와줄 거거든요.</p>
+</section>
+
+<!-- 25 -->
+<section class="slide">
+  <p class="eyebrow">AI ①</p>
+  <div class="cols">
+    <div>
+      <h2>“개랑 고양이,<br><span class="gold">어떻게 구분해?</span>”</h2>
+      <p class="say">말로 설명해보세요. 어렵죠?<br><b>보면 아는데 적기는 어려운 것</b> —<br>그때 쓰는 게 AI예요.</p>
+    </div>
+    <svg class="fig" viewBox="0 0 440 220" role="img" aria-label="사진을 많이 보여주면 스스로 구분하게 됨">
+      <rect class="box" x="10" y="20" width="90" height="46" rx="8"/><text x="55" y="49" class="s" text-anchor="middle">🐶</text>
+      <rect class="box" x="10" y="76" width="90" height="46" rx="8"/><text x="55" y="105" class="s" text-anchor="middle">🐱</text>
+      <rect class="box" x="10" y="132" width="90" height="46" rx="8"/><text x="55" y="161" class="s" text-anchor="middle">🐶 …수천 장</text>
+      <path class="ar" d="M112 100 L166 100"/>
+      <rect class="gd" x="178" y="60" width="120" height="80" rx="12"/>
+      <text x="238" y="95" class="l gold" text-anchor="middle">AI</text>
+      <text x="238" y="120" class="s" text-anchor="middle">스스로 기준 발견</text>
+      <path class="ar" d="M310 100 L364 100"/>
+      <rect class="tl" x="374" y="70" width="60" height="60" rx="12"/>
+      <text x="404" y="107" class="l teal" text-anchor="middle">✅</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 26 -->
+<section class="slide">
+  <p class="eyebrow">AI ② 생성형 AI</p>
+  <h2>구분하는 AI vs <span class="gold">만드는</span> AI</h2>
+  <div class="two">
+    <div class="card">
+      <h3>🔍 구분하는 AI</h3>
+      <p>사진을 보여주면 → <b>“고양이예요”</b></p>
+    </div>
+    <div class="card gd">
+      <h3>🎨 만드는 AI (생성형)</h3>
+      <p>“고양이 그려줘” 하면 → <b>새 그림을 그려줘요</b></p>
+    </div>
+  </div>
+  <p class="say" style="margin-top:2.6vh">그림을 아주 많이 본 <b>화가</b>, 이야기를 아주 많이 읽은 <b>이야기꾼</b> 같은 거예요.</p>
+</section>
+
+<!-- 27 -->
+<section class="slide">
+  <p class="eyebrow">AI ③ LLM</p>
+  <div class="cols">
+    <div>
+      <h2>LLM =<br><span class="gold">낱말 맞히기 챔피언</span></h2>
+      <p class="say">“나는 학교에 ___”<br>다음에 올 말을 <b>가장 그럴듯한 것</b>으로 골라요.</p>
+      <span class="chip coralc" style="border-color:rgba(245,139,122,.45);background:rgba(245,139,122,.12);color:var(--coral)">아는 게 아니라 고르는 것!</span>
+    </div>
+    <svg class="fig" viewBox="0 0 440 210" role="img" aria-label="다음 낱말 후보와 확률">
+      <rect class="box" x="10" y="10" width="420" height="50" rx="10"/>
+      <text x="220" y="43" class="l" text-anchor="middle">“나는 학교에 ___”</text>
+      <rect class="gd" x="10" y="80" width="290" height="34" rx="8"/>
+      <text x="26" y="103" class="l">간다</text><text x="284" y="103" class="l gold" text-anchor="end">70%</text>
+      <rect class="box" x="10" y="122" width="150" height="34" rx="8"/>
+      <text x="26" y="145" class="l">갔다</text><text x="172" y="145" class="s">20%</text>
+      <rect class="box" x="10" y="164" width="60" height="34" rx="8"/>
+      <text x="26" y="187" class="l">…</text><text x="82" y="187" class="s">나머지</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 28 -->
+<section class="slide">
+  <p class="eyebrow">AI ④ 그래서 조심</p>
+  <h2>확률로 고르니까<br><span class="coralc">자신 있게 틀리기도</span> 해요</h2>
+  <div class="three">
+    <div class="tile"><div class="ico">😎</div><div class="t">말은 늘 매끄러워요</div><div class="d">틀려도 그럴듯하게 들려요</div></div>
+    <div class="tile"><div class="ico">🫥</div><div class="t">없는 걸 지어내기도</div><div class="d">가짜 책 제목을 만들기도 해요</div></div>
+    <div class="tile"><div class="ico">⚖️</div><div class="t">자신감 ≠ 정답</div><div class="d">확신에 차도 틀릴 수 있어요</div></div>
+  </div>
+</section>
+
+<!-- 29 -->
+<section class="slide">
+  <p class="eyebrow">역할 나누기</p>
+  <h2>AI가 할 일과 <span class="gold">내가 할 일</span></h2>
+  <div class="two">
+    <div class="card tl">
+      <h3>🤖 AI에게 맡겨도 되는 일</h3>
+      <ul>
+        <li>많은 자료를 빠르게 찾아주기</li>
+        <li>어려운 말을 쉽게 바꿔주기</li>
+        <li>아이디어를 잔뜩 뽑아주기</li>
+        <li>초안 만들어주기</li>
+      </ul>
+    </div>
+    <div class="card gd">
+      <h3>🙋 내가 꼭 해야 하는 일</h3>
+      <ul>
+        <li>무엇을 만들지 <b>정하기</b></li>
+        <li>맞는 말인지 <b>확인하기</b></li>
+        <li>어떤 걸 쓸지 <b>고르기</b></li>
+        <li>도움받은 걸 <b>솔직히 말하기</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 30 -->
+<section class="slide">
+  <p class="eyebrow">기준 한 줄</p>
+  <div class="card gd">
+    <p class="big" style="text-align:center;font-size:clamp(20px,3vw,42px)">
+      AI는 <span class="tealc">재료를 모아주는 사람</span><br>
+      나는 <span class="gold">무엇을 만들지 정하는 사람</span>
+    </p>
+  </div>
+  <p class="say" style="margin-top:3vh;max-width:52ch">그래서 “AI가 그렇게 말했어요”는 이유가 안 돼요.<br><b>“내가 확인해봤더니 맞더라”</b>가 되어야 해요.</p>
+</section>
+
+<!-- 31 -->
+<section class="slide">
+  <p class="eyebrow">내가 꼭 지킬 것</p>
+  <h2>세 가지만 기억해요</h2>
+  <div class="three">
+    <div class="tile"><div class="ico">🔎</div><div class="t">한 번 더 확인</div><div class="d">교과서·선생님 설명이 더 정확해요</div></div>
+    <div class="tile"><div class="ico">🔒</div><div class="t">개인정보는 비밀</div><div class="d">내 이름·학교, 친구 사진 넣지 않기</div></div>
+    <div class="tile hi"><div class="ico">🙋</div><div class="t">솔직하게 말하기</div><div class="d">“이 부분은 AI 도움을 받았어요”</div></div>
+  </div>
+</section>
+
+<!-- 32 -->
+<section class="slide">
+  <p class="eyebrow">웹으로 만들기</p>
+  <h2>이제 <span class="gold">웹페이지</span>로 만들어요</h2>
+  <svg class="fig" viewBox="0 0 900 150" role="img" aria-label="부탁하면 AI가 만들고 인터넷에 올리는 흐름">
+    <rect class="gd" x="10" y="30" width="180" height="86" rx="14"/>
+    <text x="100" y="70" class="l gold" text-anchor="middle">🗣️ 부탁하기</text>
+    <text x="100" y="96" class="s" text-anchor="middle">“이렇게 만들어줘”</text>
+    <path class="ar" d="M200 73 L250 73"/>
+    <rect class="box" x="262" y="30" width="180" height="86" rx="14"/>
+    <text x="352" y="70" class="l" text-anchor="middle">🤖 AI가 만듦</text>
+    <text x="352" y="96" class="s" text-anchor="middle">웹페이지 파일</text>
+    <path class="ar" d="M452 73 L502 73"/>
+    <rect class="box" x="514" y="30" width="180" height="86" rx="14"/>
+    <text x="604" y="70" class="l" text-anchor="middle">🖼️ 사진·영상</text>
+    <text x="604" y="96" class="s" text-anchor="middle">넣기</text>
+    <path class="ar" d="M704 73 L754 73"/>
+    <rect class="tl" x="766" y="30" width="124" height="86" rx="14"/>
+    <text x="828" y="70" class="l teal" text-anchor="middle">🔗 링크</text>
+    <text x="828" y="96" class="s" text-anchor="middle">친구에게</text>
+  </svg>
+</section>
+
+<!-- 33 -->
+<section class="slide">
+  <p class="eyebrow">웹의 3형제</p>
+  <h2>집 짓기랑 똑같아요</h2>
+  <div class="three">
+    <div class="tile"><div class="ico">🦴</div><div class="t">HTML = 뼈대</div><div class="d">제목·글·사진이 <b>무엇이 있는지</b></div></div>
+    <div class="tile"><div class="ico">👗</div><div class="t">CSS = 옷</div><div class="d">색·크기·자리 <b>어떻게 보이는지</b></div></div>
+    <div class="tile"><div class="ico">🔘</div><div class="t">JS = 움직임</div><div class="d">누르면 넘어가는 <b>동작</b></div></div>
+  </div>
+  <p class="say" style="margin-top:2.6vh">외울 필요 없어요. <b>무엇을 부탁할지</b>만 알면 돼요.</p>
+</section>
+
+<!-- 34 -->
+<section class="slide">
+  <p class="eyebrow">웹의 3형제 · 눈으로 보기</p>
+  <h2>같은 내용, 세 단계</h2>
+  <svg class="fig" viewBox="0 0 900 230" role="img" aria-label="뼈대에서 색을 입히고 버튼이 움직이는 3단계">
+    <rect class="box" x="10" y="20" width="270" height="190" rx="14"/>
+    <rect x="40" y="50" width="120" height="20" rx="5" fill="rgba(239,243,249,.22)"/>
+    <rect x="40" y="82" width="200" height="10" rx="4" fill="rgba(239,243,249,.12)"/>
+    <rect x="40" y="100" width="170" height="10" rx="4" fill="rgba(239,243,249,.12)"/>
+    <rect x="40" y="126" width="90" height="56" rx="6" fill="rgba(239,243,249,.09)" stroke="rgba(239,243,249,.25)" stroke-dasharray="5 4"/>
+    <text x="145" y="205" class="s" text-anchor="middle">HTML — 뼈대만</text>
+
+    <rect class="box" x="312" y="20" width="270" height="190" rx="14"/>
+    <rect x="342" y="50" width="120" height="20" rx="5" fill="#f5bb4b"/>
+    <rect x="342" y="82" width="200" height="10" rx="4" fill="rgba(239,243,249,.5)"/>
+    <rect x="342" y="100" width="170" height="10" rx="4" fill="rgba(239,243,249,.5)"/>
+    <rect x="342" y="126" width="90" height="56" rx="10" fill="rgba(84,214,200,.3)" stroke="#54d6c8"/>
+    <text x="447" y="205" class="s" text-anchor="middle">+ CSS — 색과 모양</text>
+
+    <rect class="tl" x="614" y="20" width="276" height="190" rx="14"/>
+    <rect x="644" y="50" width="120" height="20" rx="5" fill="#f5bb4b"/>
+    <rect x="644" y="126" width="90" height="56" rx="10" fill="rgba(84,214,200,.3)" stroke="#54d6c8"/>
+    <rect x="750" y="140" width="110" height="34" rx="17" fill="#f5bb4b"/>
+    <text x="805" y="163" style="font-size:15px;font-weight:800;fill:#141f36" text-anchor="middle">다음 ▶</text>
+    <text x="752" y="205" class="s">+ JS — 눌리고 넘어감</text>
+  </svg>
+</section>
+
+<!-- 35 -->
+<section class="slide">
+  <p class="eyebrow">배포</p>
+  <div class="cols">
+    <div>
+      <h2>배포 =<br><span class="gold">전시장에 거는 일</span></h2>
+      <p class="say">내 컴퓨터에만 있으면 나만 봐요.<br>인터넷에 올리면 <b>링크 하나로</b> 누구나 봐요.</p>
+      <span class="chip">지금 보고 있는 이 자료도 그렇게 올린 거예요</span>
+    </div>
+    <svg class="fig" viewBox="0 0 440 200" role="img" aria-label="내 컴퓨터에서 인터넷으로 올려 링크 만들기">
+      <rect class="box" x="10" y="55" width="120" height="90" rx="12"/>
+      <text x="70" y="95" class="l" text-anchor="middle">💻 내 컴퓨터</text>
+      <text x="70" y="120" class="s coral" text-anchor="middle">나만 봄</text>
+      <path class="ar" d="M140 100 L186 100"/>
+      <text x="163" y="86" class="s gold" text-anchor="middle">올리기</text>
+      <rect class="gd" x="196" y="55" width="110" height="90" rx="12"/>
+      <text x="251" y="95" class="l gold" text-anchor="middle">☁️ 인터넷</text>
+      <path class="ar" d="M316 100 L362 100"/>
+      <rect class="tl" x="372" y="55" width="60" height="90" rx="12"/>
+      <text x="402" y="95" class="l teal" text-anchor="middle">🔗</text>
+      <text x="402" y="120" class="s" text-anchor="middle">모두 봄</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 36 -->
+<section class="slide">
+  <p class="eyebrow">AI에게 부탁하기</p>
+  <h2>이렇게 말해야 잘 만들어줘요</h2>
+  <div class="two">
+    <div class="card cr">
+      <h3>✗ 이렇게 말하면</h3>
+      <ul>
+        <li>“발표자료 만들어줘”</li>
+        <li>“예쁘게 해줘”</li>
+      </ul>
+      <p style="margin-top:1.4vh">→ 엉뚱한 게 나와요</p>
+    </div>
+    <div class="card tl">
+      <h3>○ 이렇게 말하면</h3>
+      <ul>
+        <li>“5장짜리로, 1장은 제목, 2장은 문제, 3장은 사진…”</li>
+        <li>“화살표 키로 넘어가게 해줘”</li>
+        <li>“배경은 남색, 글씨는 흰색으로”</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 37 -->
+<section class="slide">
+  <p class="eyebrow">사진·영상 넣기</p>
+  <div class="cols">
+    <div>
+      <h2>같은 폴더에<br><span class="gold">넣어두기</span></h2>
+      <p class="say">바탕화면에 둔 사진은 못 찾아요.<br>파일 이름은 <b>영어와 숫자</b>로.</p>
+      <span class="chip" style="border-color:rgba(245,139,122,.45);background:rgba(245,139,122,.12);color:var(--coral)">인터넷 사진 함부로 쓰지 않기</span>
+    </div>
+    <svg class="fig" viewBox="0 0 440 220" role="img" aria-label="폴더 안의 사진·영상이 웹페이지에 표시됨">
+      <rect class="box" x="10" y="20" width="180" height="180" rx="12"/>
+      <text x="100" y="52" class="l" text-anchor="middle">📁 내 폴더</text>
+      <text x="34" y="88" class="s">📄 index.html</text>
+      <text x="34" y="122" class="s">🖼 bird.jpg</text>
+      <text x="34" y="156" class="s">🎬 video.mp4</text>
+      <path class="ar" d="M200 110 L252 110"/>
+      <rect class="tl" x="264" y="40" width="166" height="140" rx="12"/>
+      <text x="347" y="80" class="l teal" text-anchor="middle">웹페이지</text>
+      <rect x="290" y="96" width="114" height="30" rx="6" fill="rgba(84,214,200,.25)"/>
+      <text x="347" y="116" class="s" text-anchor="middle">사진 보임</text>
+      <rect x="290" y="134" width="114" height="30" rx="6" fill="rgba(245,187,75,.25)"/>
+      <text x="347" y="154" class="s" text-anchor="middle">영상 재생</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 38 -->
+<section class="slide">
+  <div class="full"><img src="assets/fognet.jpg" alt=""></div>
+  <p class="eyebrow">마무리</p>
+  <h2>오늘 한 일</h2>
+  <div class="four" style="margin-top:2vh">
+    <div class="tile"><div class="ico">🔍</div><div class="t">자연을 봤고</div></div>
+    <div class="tile"><div class="ico">💡</div><div class="t">아이디어를 모았고</div></div>
+    <div class="tile"><div class="ico">🤖</div><div class="t">AI와 나눠서 일했고</div></div>
+    <div class="tile hi"><div class="ico">🔗</div><div class="t">웹으로 올렸어요</div></div>
+  </div>
+  <p class="say" style="margin-top:3vh">다음 시간엔 오늘 만든 것을 <b>진짜로 만들어</b> 봅니다.</p>
+</section>
 
 </div>
 
 <nav class="hud"><i id="bar"></i></nav>
-<div class="counter"><span id="cur">1</span> / <span id="tot">46</span></div>
+<div class="counter"><span id="cur">1</span> / <span id="tot">38</span></div>
 <div class="hint">← → 또는 스페이스로 이동 · F 전체화면</div>
 
 <script>
-  const slides = [...document.querySelectorAll('.slide')];
-  let i = 0;
-  const cur = document.getElementById('cur');
-  const bar = document.getElementById('bar');
-  document.getElementById('tot').textContent = slides.length;
-
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const cur=document.getElementById('cur'), bar=document.getElementById('bar');
+  document.getElementById('tot').textContent=slides.length;
   function show(n){
-    i = Math.max(0, Math.min(slides.length - 1, n));
-    slides.forEach((s, k) => s.classList.toggle('active', k === i));
-    cur.textContent = i + 1;
-    bar.style.width = ((i + 1) / slides.length * 100) + '%';
-    history.replaceState(null, '', '#' + (i + 1));
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    cur.textContent=i+1;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    history.replaceState(null,'','#'+(i+1));
   }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
-    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
-    if (e.key === 'Home') show(0);
-    if (e.key === 'End') show(slides.length - 1);
-    if (e.key.toLowerCase() === 'f') {
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
-      else document.exitFullscreen?.();
-    }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(i+1);}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+    if(e.key.toLowerCase()==='f'){document.fullscreenElement?document.exitFullscreen?.():document.documentElement.requestFullscreen?.();}
   });
-  document.addEventListener('click', e => {
-    if (e.target.closest('a')) return;
-    show(e.clientX < innerWidth * 0.25 ? i - 1 : i + 1);
-  });
-  const start = parseInt(location.hash.slice(1), 10);
-  show(Number.isFinite(start) && start > 0 ? start - 1 : 0);
+  document.addEventListener('click',e=>{if(e.target.closest('a'))return;show(e.clientX<innerWidth*0.25?i-1:i+1);});
+  const st=parseInt(location.hash.slice(1),10);
+  show(Number.isFinite(st)&&st>0?st-1:0);
 </script>
 </body>
 </html>
